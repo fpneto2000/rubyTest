@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140523015445) do
+ActiveRecord::Schema.define(version: 20140523213741) do
 
   create_table "departamentos", force: true do |t|
     t.string   "descr"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "usuarios", force: true do |t|
+    t.string   "nome"
+    t.string   "login"
+    t.string   "senha"
+    t.integer  "nivel"
+    t.float    "perComiss"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
