@@ -8,31 +8,25 @@
 </head>
 <body>
      <nav class="navbar navbar-default navbar-static-top" role="navigation">
-  	    <div class="pull-left">
-     	   <a href="http://www.connexxus.com.br">
-        	 <%=image_tag('logo-mini.png',width: '93px', height: '48px',:class =>'img-thumbnail')%>
+     <div class="container">
+ 
+  	      <a class="navbar-link navbar-left" href="http://www.connexxus.com.br">
+        	 <%=image_tag('logo-mini.png',width: '103px', height: '50px',:class =>'img-thumbnail')%>
            </a>
-	    </div>	
-
         <ul class="nav navbar-nav"> 	
           <li class="dropdown">
              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastros<b class="caret"></b></a>
              <ul class="dropdown-menu">
-               <li><a href="#">Produtos</a></li>
                <li><a href="#">Participantes</a></li>
+               <li><a href="#">Produtos</a></li>
+               <li><a href="#">Finalidade</a></li>
+               <li class="divider"></li>
+               <li><a href="#">Departamentos</a></li>
+               <li><a href="#">Categorias</a></li>
+               <li><a href="#">Subcategorias</a></li>
+               <li class="divider"></li>
                <li><a href="#">Forma de Pagamento</a></li>
                <li><a href="#">Forma de Envio</a></li>
-               <li><a href="#">Finalidade</a></li>
- 
-               <li class="dropdown">
-               	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Organizações<b class="caret"></b></a>
-                 <ul class="dropdown-menu">
-                   <li><a href="#">Departamentos</a></li>
-                   <li><a href="#">Categorias</a></li>
-                   <li><a href="#">Subcategorias</a></li>
-                </ul>
-               </li>
-               
                <li><a href="#">Usuários</a></li>
              </ul>
            </li>
@@ -47,19 +41,24 @@
            <li><a href="#">Relatórios</a></li>
            
            <li class="dropdown"> 
-           	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sobre<b class="caret"></b></a>
+           	 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-info-sign"></span> Sobre<b class="caret"></b></a>
              <ul class="dropdown-menu">
                <li><a href="#"><span>Versão</span></a></li>
                <li><a href="http://www.connexxus.com.br"><span>Connexxus</span></a></li>
              </ul>
            </li>
            
-           <li><a href="#"><span>Sair</span></a></li>
+           <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
         </ul>
-   
+    </div>
     </nav>
     <div class="container">
        <%= yield %>
     </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <div class="container">
+        <p class="navbar-text">SIC - Sistema integrado Connexxus - Connexxus Tecnologia da Informação</p>
+    </div>
+    </nav>
 </body>
 </html>
