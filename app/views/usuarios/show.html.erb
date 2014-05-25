@@ -6,13 +6,8 @@
 </p>
 
 <p>
-  <strong>Login:</strong>
+  <strong>Email:</strong>
   <%= @usuario.login %>
-</p>
-
-<p>
-  <strong>Senha:</strong>
-  <%= @usuario.senha %>
 </p>
 
 <p>
@@ -21,9 +16,11 @@
 </p>
 
 <p>
-  <strong>Percomiss:</strong>
+  <strong>%Percomiss:% Cimissão</strong>
   <%= @usuario.perComiss %>
 </p>
 
-<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
-<%= link_to 'Back', usuarios_path %>
+<ul class="pager">
+   <li><%= link_to 'Editar', edit_usuario_path(@usuario) %></li>
+   <li><%= link_to 'Voltar', usuarios_path %></li>
+</ul>

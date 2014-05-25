@@ -1,0 +1,35 @@
+<h1>Cadastro de Finalidades</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Descrição</th>
+      <th>Gateway</th>
+      <th>Comiss.Marketing</th>
+      <th>Marketing</th>
+      <th>Embalagem</th>
+      <th>Encargos</th>
+      <th style="width: 10%" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @finalidades.each do |finalidade| %>
+      <tr>
+        <td><%= finalidade.descr %></td>
+        <td><%= finalidade.vlrgate %></td>
+        <td><%= finalidade.vlrcomissmark %></td>
+        <td><%= finalidade.vlrmarketing %></td>
+        <td><%= finalidade.vlrembalagem %></td>
+        <td><%= finalidade.vlrencargos %></td>
+        <td><%= link_to 'Mostrar', finalidade,:class=>'btn btn-primary btn-xs'  %></td>
+        <td><%= link_to 'Editar', edit_finalidade_path(finalidade),:class=>'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Excluir', finalidade, method: :delete, data: { confirm: 'Tem Certeza?' },:class=>'btn btn-danger btn-xs' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nova Finalidade', new_finalidade_path,:class=> 'btn btn-default' %>

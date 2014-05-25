@@ -1,14 +1,17 @@
-<h1>Listing usuarios</h1>
+<h1>Cadastro de usuarios</h1>
+<% if notice %>
+   <p id="notice"><%= notice %></p>
+<%end%>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Nome</th>
-      <th>Login</th>
+      <th>Email</th>
       <th>Senha</th>
       <th>Nivel</th>
-      <th>Percomiss</th>
-      <th colspan="3"></th>
+      <th>% Comissão</th>
+      <th style="width: 10%" colspan="3"></th>
     </tr>
   </thead>
 
@@ -20,9 +23,9 @@
         <td><%= usuario.senha %></td>
         <td><%= usuario.nivel %></td>
         <td><%= usuario.perComiss %></td>
-        <td><%= link_to 'Show', usuario %></td>
-        <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
-        <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', usuario,:class=>'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Editar', edit_usuario_path(usuario),:class=>'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Apagar', usuario, method: :delete, data: { confirm: 'Tem Certeza?' },:class=>'btn btn-danger btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +33,4 @@
 
 <br>
 
-<%= link_to 'New Usuario', new_usuario_path %>
+<%= link_to 'Novo Usuario', new_usuario_path, :class=> 'btn btn-default' %>

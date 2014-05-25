@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descrição:</strong>
+  <%= @finalidade.descr %>
+</p>
+
+<p>
+  <strong>Valor Gateway</strong>
+  <%= @finalidade.vlrgate %>
+</p>
+
+<p>
+  <strong>Valor Comissão Marketing</strong>
+  <%= @finalidade.vlrcomissmark %>
+</p>
+
+<p>
+  <strong>Valor Marketing</strong>
+  <%= @finalidade.vlrmarketing %>
+</p>
+
+<p>
+  <strong>Valor Embalagem</strong>
+  <%= @finalidade.vlrembalagem %>
+</p>
+
+<p>
+  <strong>Valor Encargos</strong>
+  <%= @finalidade.vlrencargos %>
+</p>
+
+<ul class="pager">
+  <li><%= link_to 'Editar', edit_finalidade_path(@finalidade) %></li>
+  <li><%= link_to 'Voltar', finalidades_path %></li>
+</ul>

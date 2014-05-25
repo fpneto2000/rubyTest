@@ -1,0 +1,43 @@
+<%= form_for(@finalidade) do |f| %>
+  <% if @finalidade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@finalidade.errors.count, "error") %> prohibited this finalidade from being saved:</h2>
+
+      <ul>
+      <% @finalidade.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<div class="form-group">
+  <div class="field">
+    Descrição<br>
+    <%= f.text_field :descr,:class => 'form-control' %>
+  </div>
+  <div class="field">
+    Valor Gateway<br>
+    <%= f.text_field :vlrgate,:class => 'form-control' %>
+  </div>
+  <div class="field">
+    Valor comissão Marketing<br>
+    <%= f.text_field :vlrcomissmark,:class => 'form-control' %>
+  </div>
+  <div class="field">
+    Valor Marketing<br>
+    <%= f.text_field :vlrmarketing,:class => 'form-control' %>
+  </div>
+  <div class="field">
+    Valor Embalagem<br>
+    <%= f.text_field :vlrembalagem,:class => 'form-control' %>
+  </div>
+  <div class="field">
+    Valor Encargos<br>
+    <%= f.text_field :vlrencargos,:class => 'form-control' %>
+  </div>
+</div>
+  <div class="actions">
+    <%= f.submit 'Gravar Finalidade', :class => 'btn btn-default' %>
+  </div>
+<% end %>

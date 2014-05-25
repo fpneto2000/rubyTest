@@ -1,6 +1,8 @@
-<h1>Editing usuario</h1>
+<h1>Alteração de Usuário</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @usuario %> |
-<%= link_to 'Back', usuarios_path %>
+<ul class="pager">
+  <li><%= link_to 'Mostrar', @usuario %></li>
+  <li><%= link_to 'Voltar', usuarios_path %></li>
+</ul>

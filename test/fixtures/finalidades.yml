@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descr: MyString
+  vlrgate: 1.5
+  vlrcomissmark: 1.5
+  vlrmarketing: 1.5
+  vlrembalagem: 1.5
+  vlrencargos: 1.5
+
+two:
+  descr: MyString
+  vlrgate: 1.5
+  vlrcomissmark: 1.5
+  vlrmarketing: 1.5
+  vlrembalagem: 1.5
+  vlrencargos: 1.5

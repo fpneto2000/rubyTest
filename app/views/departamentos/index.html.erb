@@ -1,10 +1,10 @@
-<h1>Cadastro Departamentos</h1>
+<h1>Cadastro de Departamentos</h1>
 
-<table class="table table-striped">
+<table class="table">
   <thead>
     <tr>
       <th>Descrição</th>
-      <th colspan="3"></th>
+      <th style="width: 10%" colspan="3"></th>
     </tr>
   </thead>
 
@@ -12,9 +12,9 @@
     <% @departamentos.each do |departamento| %>
       <tr>
         <td><%= departamento.descr %></td>
-        <td><%= link_to 'Show', departamento, :class => 'btn btn-primary btn-xm' %></td>
-        <td><%= link_to 'Edit', edit_departamento_path(departamento),:class => 'btn btn-primary btn-xm' %></td>
-        <td><%= link_to 'Destroy', departamento, method: :delete, data: { confirm: 'Are you sure?' },:class => 'btn btn-danger btn-xm' %></td>
+        <td><%= link_to 'Mostrar', departamento,:class=>'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Editar', edit_departamento_path(departamento),:class=>'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Apagar', departamento, method: :delete, data: { confirm: 'Tem Certeza?' },:class=>'btn btn-danger btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Departamento', new_departamento_path, :class=> 'btn btn-primary' %>
+<%= link_to 'Novo Departamento', new_departamento_path, :class=> 'btn btn-default' %>

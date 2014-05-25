@@ -1,6 +1,8 @@
-<h1>Alteração Departamento</h1>
+<h1>Alteração de Departamento</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @departamento %> |
-<%= link_to 'Back', departamentos_path %>
+<ul class="pager">
+  <li><%= link_to 'Mostrar', @departamento %></li>
+  <li><%= link_to 'Voltar', departamentos_path %></li>
+</ul>

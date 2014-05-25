@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :finalidades
+
   resources :usuarios
 
   resources :departamentos

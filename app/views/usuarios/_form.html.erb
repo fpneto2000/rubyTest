@@ -1,7 +1,7 @@
 <%= form_for(@usuario) do |f| %>
   <% if @usuario.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+      <h2><%= pluralize(@usuario.errors.count, "error") %> Proibido salvar o usuario:</h2>
 
       <ul>
       <% @usuario.errors.full_messages.each do |message| %>
@@ -10,28 +10,36 @@
       </ul>
     </div>
   <% end %>
+  
+<div class="form-group">
+  <div class="field">
+    Nome do Usuário<br>
+    <%= f.text_field :nome, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    Login<br>
+    <%= f.text_field :login, :type => 'email', :class => 'form-control', :placeholder=>'Digite o email' %>
+  </div>
+  <div class="field">
+    Nivel de Acesso<br>
+    <%= f.number_field :nivel,:class => 'form-control' %>
+  </div>
+  <div class="field">
+    % Comissão<br>
+    <%= f.text_field :perComiss,:class => 'form-control' %>
+  </div>
+  <div class="field">
+    Senha<br>
+    <%= f.text_field :senha, :type=>'password', :class=>'form-control' %>
+  </div>
+  <div class="field">
+    Confirmar Senha<br>
+    <%= f.text_field :senha_confirmation, :type=>'password', :class=>'form-control' %>
+  </div>
 
-  <div class="field">
-    <%= f.label :nome %><br>
-    <%= f.text_field :nome %>
-  </div>
-  <div class="field">
-    <%= f.label :login %><br>
-    <%= f.text_field :login %>
-  </div>
-  <div class="field">
-    <%= f.label :senha %><br>
-    <%= f.text_field :senha %>
-  </div>
-  <div class="field">
-    <%= f.label :nivel %><br>
-    <%= f.number_field :nivel %>
-  </div>
-  <div class="field">
-    <%= f.label :perComiss %><br>
-    <%= f.text_field :perComiss %>
-  </div>
+</div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Gravar Usuário', :class => 'btn btn-default' %>
   </div>
 <% end %>
+

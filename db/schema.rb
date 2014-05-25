@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140523213741) do
+ActiveRecord::Schema.define(version: 20140525160303) do
 
   create_table "departamentos", force: true do |t|
     t.string   "descr"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "finalidades", force: true do |t|
+    t.string   "descr"
+    t.float    "vlrgate"
+    t.float    "vlrcomissmark"
+    t.float    "vlrmarketing"
+    t.float    "vlrembalagem"
+    t.float    "vlrencargos"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,6 +38,7 @@ ActiveRecord::Schema.define(version: 20140523213741) do
     t.float    "perComiss"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "salt"
   end
 
 end
