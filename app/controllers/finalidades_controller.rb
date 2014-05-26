@@ -28,7 +28,7 @@ class FinalidadesController < ApplicationController
 
     respond_to do |format|
       if @finalidade.save
-        format.html { redirect_to @finalidade, notice: 'Finalidade was successfully created.' }
+        format.html { redirect_to @finalidade, notice: 'Finalidade criada com sucesso.' }
         format.json { render :show, status: :created, location: @finalidade }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class FinalidadesController < ApplicationController
   def update
     respond_to do |format|
       if @finalidade.update(finalidade_params)
-        format.html { redirect_to @finalidade, notice: 'Finalidade was successfully updated.' }
+        format.html { redirect_to @finalidade, notice: 'Finalidade atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @finalidade }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class FinalidadesController < ApplicationController
   def destroy
     @finalidade.destroy
     respond_to do |format|
-      format.html { redirect_to finalidades_url, notice: 'Finalidade was successfully destroyed.' }
+      format.html { redirect_to finalidades_url, notice: 'Finalidade excluida com sucesso.' }
       format.json { head :no_content }
     end
   end

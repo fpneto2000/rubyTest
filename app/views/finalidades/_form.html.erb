@@ -1,7 +1,7 @@
 <%= form_for(@finalidade) do |f| %>
   <% if @finalidade.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@finalidade.errors.count, "error") %> prohibited this finalidade from being saved:</h2>
+      <h2><%= pluralize(@finalidade.errors.count, "error") %> Dados inválidos para gravação:</h2>
 
       <ul>
       <% @finalidade.errors.full_messages.each do |message| %>

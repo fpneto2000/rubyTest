@@ -1,7 +1,7 @@
-<%= form_for(@departamento,:html => { :class => 'form-horizontal' }) do |f| %>
+<%= form_for(@departamento) do |f| %>
   <% if @departamento.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@departamento.errors.count, "error") %> prohibited this departamento from being saved:</h2>
+      <h2><%= pluralize(@departamento.errors.count, "error") %> Dados inválidos para gravação:</h2>
 
       <ul>
       <% @departamento.errors.full_messages.each do |message| %>

@@ -1,7 +1,7 @@
 <%= form_for(@usuario) do |f| %>
   <% if @usuario.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@usuario.errors.count, "error") %> Proibido salvar o usuario:</h2>
+      <h2><%= pluralize(@usuario.errors.count, "error") %> Dados inválidos para gravação:</h2>
 
       <ul>
       <% @usuario.errors.full_messages.each do |message| %>
@@ -30,11 +30,11 @@
   </div>
   <div class="field">
     Senha<br>
-    <%= f.text_field :senha, :type=>'password', :class=>'form-control' %>
+    <%= f.password_field :password, :class=>'form-control' %>
   </div>
   <div class="field">
     Confirmar Senha<br>
-    <%= f.text_field :senha_confirmation, :type=>'password', :class=>'form-control' %>
+    <%= f.password_field :password_confirmation, :class=>'form-control' %>
   </div>
 
 </div>
