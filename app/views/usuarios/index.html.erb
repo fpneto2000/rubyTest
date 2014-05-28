@@ -1,14 +1,14 @@
-<h1>Cadastro de usuarios</h1>
 <% if notice %>
-   <p id="notice"><%= notice %></p>
+   <div class="alert alert-info"><p id="notice"><%= notice %></p></div>
 <%end%>
+
+<h1>Cadastro de Usuários</h1>
 
 <table class="table">
   <thead>
     <tr>
       <th>Nome</th>
       <th>Email</th>
-      <th>Senha</th>
       <th>Nivel</th>
       <th>% Comissão</th>
       <th style="width: 10%" colspan="3"></th>
@@ -20,7 +20,6 @@
       <tr>
         <td><%= usuario.nome %></td>
         <td><%= usuario.login %></td>
-        <td><%= usuario.senha %></td>
         <td><%= usuario.nivel %></td>
         <td><%= usuario.perComiss %></td>
         <td><%= link_to 'Mostrar', usuario,:class=>'btn btn-primary btn-xs' %></td>

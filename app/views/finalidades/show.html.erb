@@ -1,4 +1,6 @@
-<div class="alert alert-info"><p id="notice"><%= notice %></p></div>
+<% if notice %>
+  <div class="alert alert-info"><p id="notice"><%= notice %></p></div>
+<%end%>
 
 <p>
   <strong>Descrição:</strong>
@@ -6,27 +8,27 @@
 </p>
 
 <p>
-  <strong>Valor Gateway</strong>
+  <strong>Valor Gateway:</strong>
   <%= @finalidade.vlrgate %>
 </p>
 
 <p>
-  <strong>Valor Comissão Marketing</strong>
+  <strong>Valor Comissão Marketing:</strong>
   <%= @finalidade.vlrcomissmark %>
 </p>
 
 <p>
-  <strong>Valor Marketing</strong>
+  <strong>Valor Marketing:</strong>
   <%= @finalidade.vlrmarketing %>
 </p>
 
 <p>
-  <strong>Valor Embalagem</strong>
+  <strong>Valor Embalagem:</strong>
   <%= @finalidade.vlrembalagem %>
 </p>
 
 <p>
-  <strong>Valor Encargos</strong>
+  <strong>Valor Encargos:</strong>
   <%= @finalidade.vlrencargos %>
 </p>
 

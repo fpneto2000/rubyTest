@@ -7,8 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<%= render file:'layouts/menu.html.erb' %>
-	
+	<% if session[:usuario_id] %>
+	  <%= render file:'layouts/menu.html.erb' %>
+	<% end %>
     <div class="container">
        <div class="panel">	
          <div class="panel-body">	

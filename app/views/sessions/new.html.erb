@@ -1,0 +1,26 @@
+<div class="panel panel-primary" style="width: 400px; margin: 0 auto">
+   <div class="panel-heading">
+  	 <h4 style="margin:0 auto">SIC - Sistema Integrado Connexxus</h4>
+     <h5>Login</h5>  	
+   </div>
+   <div class="panel-body">
+     <%= form_tag do %>
+     <div class="form-group">
+       <div class="field">
+         Login<br>
+         <%= text_field_tag :login, params[:login], :type => 'email', :class => 'form-control', :placeholder=>'Digite o email' %>
+       </div>
+       <div class="field">
+         Senha<br>
+         <%= password_field_tag :password, params[:password], :class=>'form-control' %>
+       </div>
+    </div>
+    <div class="actions">
+      <%= submit_tag 'Login', :class => 'btn btn-default' %>
+    </div>
+    <% end %>
+    </div>
+     <% if flash[:alert] %>
+       <div class="alert alert-info"><p id="notice"><%= flash[:alert] %></p></div> 
+     <%end%>
+</div>

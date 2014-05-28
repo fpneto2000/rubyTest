@@ -1,4 +1,7 @@
-<div class="alert alert-info"><p id="notice"><%= notice %></p></div>
+<% if notice %>
+  <div class="alert alert-info"><p id="notice"><%= notice %></p></div>
+<%end%>
+
 
 <p>
   <strong>Nome:</strong>
@@ -16,7 +19,7 @@
 </p>
 
 <p>
-  <strong>%Percomiss:% Cimissão</strong>
+  <strong>% Comissão:</strong>
   <%= @usuario.perComiss %>
 </p>
 

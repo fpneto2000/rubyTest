@@ -29,7 +29,6 @@ class Usuario < ActiveRecord::Base
          generate_salt
          self.senha = self.class.encrypt_password(password, salt)
        end
-       
      end
 
   private  
