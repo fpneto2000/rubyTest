@@ -1,6 +1,10 @@
 <% if notice %>
   <div class="alert alert-info"><p id="notice"><%= notice %></p></div>
 <%end%>
+<div class="panel panel-default" style="width: 800px;margin: 0 auto">
+  <div class="panel-heading"><h4>Detalhe da Finalidade</h4></div>
+  <div class="panel-body">	
+   <p>
 
 <p>
   <strong>Descrição:</strong>
@@ -31,6 +35,8 @@
   <strong>Valor Encargos:</strong>
   <%= @finalidade.vlrencargos %>
 </p>
+  </div>
+</div>
 
 <ul class="pager">
   <li><%= link_to 'Editar', edit_finalidade_path(@finalidade) %></li>

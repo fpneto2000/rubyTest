@@ -2,6 +2,9 @@
   <div class="alert alert-info"><p id="notice"><%= notice %></p></div>
 <%end%>
 
+<div class="panel panel-default" style="width: 800px;margin: 0 auto">
+  <div class="panel-heading"><h4>Detalhe do Usuário</h4></div>
+  <div class="panel-body">	
 
 <p>
   <strong>Nome:</strong>
@@ -22,6 +25,8 @@
   <strong>% Comissão:</strong>
   <%= @usuario.perComiss %>
 </p>
+  </div>
+</div>
 
 <ul class="pager">
    <li><%= link_to 'Editar', edit_usuario_path(@usuario) %></li>

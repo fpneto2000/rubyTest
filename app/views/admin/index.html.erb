@@ -1,4 +1,8 @@
-<h1>Bem vindo</h1>
-<h2>SIC - Sistema Integrado Connexxus</h2>
-<h3><%= Time.now %></h3> 
+<div class="panel panel-default" style="width:600px;margin: 0 auto">
+  <div class="panel panel-body">
+  <center><h3>Bem vindo <%= session[:usuario_nome] %> ao</h2></center>
+  <center><h2><span class="label label-default">SIC - Sistema Integrado Connexxus</span></h2></center>
+  <center><h4></h4><%= Time.now.strftime("%d/%m/%y - %H:%M") %></h3></center> 
+  </div>
+</div>
 

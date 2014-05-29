@@ -1,7 +1,13 @@
+
 <div class="panel panel-primary" style="width: 400px; margin: 0 auto">
-   <div class="panel-heading">
-  	 <h4 style="margin:0 auto">SIC - Sistema Integrado Connexxus</h4>
-     <h5>Login</h5>  	
+   <div class="panel-heading" style=";height:70px">
+   	 <a class="navbar-link navbar-left" href="http://www.connexxus.com.br">
+       <%=image_tag('logo-mini.png',width: '103px', height: '50px',:class =>'img-thumbnail')%>
+     </a>
+     
+     <center>SIC - Sistema Integrado Connexxus</center>
+     
+       	
    </div>
    <div class="panel-body">
      <%= form_tag do %>
@@ -20,7 +26,9 @@
     </div>
     <% end %>
     </div>
+    <div class="container-fluid">
      <% if flash[:alert] %>
-       <div class="alert alert-info"><p id="notice"><%= flash[:alert] %></p></div> 
+       <div class="alert alert-danger"><p id="notice"><%= flash[:alert] %></p></div> 
      <%end%>
+     </div>
 </div>
