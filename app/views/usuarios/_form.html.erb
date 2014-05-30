@@ -20,10 +20,12 @@
     Login<br>
     <%= f.text_field :login, :type => 'email', :class => 'form-control', :placeholder=>'Digite o email' %>
   </div>
+  
   <div class="field">
     Nivel de Acesso<br>
-    <%= f.number_field :nivel,:class => 'form-control' %>
-  </div>
+    <%= f.select :nivel, options_for_select([['Administrador',0],['Usuário',1]]), class: 'form-control'  %>
+   </div>
+  
   <div class="field">
     % Comissão<br>
     <%= f.text_field :perComiss,:class => 'form-control' %>

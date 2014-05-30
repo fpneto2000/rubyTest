@@ -1,7 +1,3 @@
-<% if notice %>
-  <div class="alert alert-info"><p id="notice"><%= notice %></p></div>
-<%end%>
-
 <div class="panel panel-default" style="width: 800px;margin: 0 auto">
   <div class="panel-heading"><h4>Detalhe do Departamento</h4></div>
   <div class="panel-body">	
@@ -9,7 +5,12 @@
      <strong>Descrição:</strong>
      <%= @departamento.descr %>
    </p>
+   <% if notice %>
+     <div class="alert alert-info"><p id="notice"><%= notice %></p></div> 
+   <%end%>
+   
   </div>
+  
 </div>
 <ul class="pager">
    <li><%= link_to 'Editar', edit_departamento_path(@departamento) %></li>
