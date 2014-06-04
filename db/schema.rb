@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140525160303) do
+ActiveRecord::Schema.define(version: 20140603224729) do
 
   create_table "departamentos", force: true do |t|
     t.string   "descr"
@@ -26,6 +26,39 @@ ActiveRecord::Schema.define(version: 20140525160303) do
     t.float    "vlrmarketing"
     t.float    "vlrembalagem"
     t.float    "vlrencargos"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "participantes", force: true do |t|
+    t.string   "tipo",           limit: 1
+    t.string   "nome",           limit: 60
+    t.decimal  "cnpj",                       precision: 10, scale: 0
+    t.string   "ie",             limit: 20
+    t.string   "ender",          limit: 100
+    t.string   "numero",         limit: 10
+    t.string   "bairro",         limit: 60
+    t.string   "cidade",         limit: 100
+    t.string   "uf",             limit: 2
+    t.string   "cep",            limit: 9
+    t.string   "ender_cob",      limit: 100
+    t.string   "numero_cob",     limit: 10
+    t.string   "bairro_cob",     limit: 60
+    t.string   "cidade_cob",     limit: 100
+    t.string   "uf_cob",         limit: 2
+    t.string   "cep_cob",        limit: 9
+    t.string   "ender_entrega",  limit: 100
+    t.string   "numero_entrega", limit: 10
+    t.string   "bairro_entrega", limit: 60
+    t.string   "cidade_entrega", limit: 100
+    t.string   "uf_entrega",     limit: 2
+    t.string   "cep_entrega",    limit: 9
+    t.string   "tel1",           limit: 20
+    t.string   "tel2",           limit: 20
+    t.string   "tel3",           limit: 20
+    t.string   "email_nfe",      limit: 60
+    t.string   "email_contato",  limit: 60
+    t.string   "cli_ou_for",     limit: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end

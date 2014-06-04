@@ -8,7 +8,7 @@
           <li class="dropdown">
              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastros<b class="caret"></b></a>
              <ul class="dropdown-menu">
-               <li class="disabled"><a href="#">Participantes</a></li>
+               <li><a href="/participantes">Participantes</a></li>
                <li class="disabled"><a href="#">Produtos</a></li>
                <li><a href="/finalidades">Finalidade</a></li>
                <li class="divider"></li>
@@ -32,17 +32,35 @@
            <li class="disabled"><a href="#">Relatórios</a></li>
            
            <li class="dropdown"> 
-           	 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-info-sign"></i> Sobre<b class="caret"></b></a>
+           	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+           	 	<%=image_tag('glyphicons_241_flash.png',width: '20px', height: '20px')%>
+           	 	Sobre<b class="caret"></b>
+           	 </a>
              <ul class="dropdown-menu">
-               <li class="disabled"><a href="#">Versão</a></li>
+               <li class="disabled"><a href="#"></span> Versão</a></li>
                <li><a href="http://www.connexxus.com.br">Connexxus</a></li>
              </ul>
            </li>
            
-           <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
         </ul>
         
-        <span class="pull-right" style="padding-top: 15px;">Usuário:<b><%= session[:usuario_nome] %></b></span>
-        
+        <ul class="nav navbar-nav navbar-right"> 
+           <li class="dropdown">
+        	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        	 	<b><%= session[:usuario_nome] %> </b> 
+        	    <%=image_tag('glyphicons_003_user.png',width: '20px', height: '20px')%>
+        	 </a>
+        	 <ul class="dropdown-menu">
+        	    <li>
+        	  	<a href="/logout">
+           	      <%=image_tag('glyphicons_388_exit.png',width: '20px', height: '20px')%>
+           	      Sair
+           	    </a>
+                </li>
+             </ul>
+           </li>
+        		
+        </ul>
     </div>
     </nav>
+  

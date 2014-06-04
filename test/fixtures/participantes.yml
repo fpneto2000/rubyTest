@@ -1,0 +1,61 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tipo: MyString
+  nome: MyString
+  cnpj: 9.99
+  ie: MyString
+  ender: MyString
+  numero: MyString
+  bairro: MyString
+  cidade: MyString
+  uf: MyString
+  cep: MyString
+  ender_cob: MyString
+  numero_cob: MyString
+  bairro_cob: MyString
+  cidade_cob: MyString
+  uf_cob: MyString
+  cep_cob: MyString
+  ender_entrega: MyString
+  numero_entrega: MyString
+  bairro_entrega: MyString
+  cidade_entrega: MyString
+  uf_entrega: MyString
+  cep_entrega: MyString
+  tel1: MyString
+  tel2: MyString
+  tel3: MyString
+  email_nfe: MyString
+  email_contato: MyString
+  cli_ou_for: MyString
+
+two:
+  tipo: MyString
+  nome: MyString
+  cnpj: 9.99
+  ie: MyString
+  ender: MyString
+  numero: MyString
+  bairro: MyString
+  cidade: MyString
+  uf: MyString
+  cep: MyString
+  ender_cob: MyString
+  numero_cob: MyString
+  bairro_cob: MyString
+  cidade_cob: MyString
+  uf_cob: MyString
+  cep_cob: MyString
+  ender_entrega: MyString
+  numero_entrega: MyString
+  bairro_entrega: MyString
+  cidade_entrega: MyString
+  uf_entrega: MyString
+  cep_entrega: MyString
+  tel1: MyString
+  tel2: MyString
+  tel3: MyString
+  email_nfe: MyString
+  email_contato: MyString
+  cli_ou_for: MyString

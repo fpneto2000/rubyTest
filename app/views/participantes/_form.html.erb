@@ -1,0 +1,135 @@
+<%= form_for(@participante) do |f| %>
+  <% if @participante.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@participante.errors.count, "error") %> prohibited this participante from being saved:</h2>
+
+      <ul>
+      <% @participante.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="form-group">
+  <div class="field">
+    Tipo<br>
+    <select id="participante_tipo" name="participante[tipo]" class="form-control">
+    <%= options_for_select([['Pessoa Física', 'F'], ['Pessoa Jurídica', 'J']], @participante.tipo) %>	
+    </select>
+  </div>
+  <div class="field">
+    Nome<br>
+    <%= f.text_field :nome,  :class => 'form-control' %>
+  </div>
+  <div class="field">
+    CPF/CNPJ<br>
+    <%= f.text_field :cnpj, size:14, :class => 'form-control', :placeholder=>'col-lg-2' %>
+  </div>
+  <div class="field">
+    RG/Inscrição Estadual<br>
+    <%= f.text_field :ie, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    Endereço<br>
+    <%= f.text_field :ender, :class => 'form-control'%>
+  </div>
+  <div class="field">
+    Número<br>
+    <%= f.text_field :numero, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    Bairro<br>
+    <%= f.text_field :bairro, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    Cidade<br>
+    <%= f.text_field :cidade, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    UF<br>
+    <%= f.text_field :uf, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    CEP<br>
+    <%= f.text_field :cep, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    Endereço Cobrança<br>
+    <%= f.text_field :ender_cob, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    Número<br>
+    <%= f.text_field :numero_cob, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    Bairro<br>
+    <%= f.text_field :bairro_cob, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    Cidade<br>
+    <%= f.text_field :cidade_cob, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    UF<br>
+    <%= f.text_field :uf_cob, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    CEP<br>
+    <%= f.text_field :cep_cob, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    Endereço Entrega<br>
+    <%= f.text_field :ender_entrega, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    Número<br>
+    <%= f.text_field :numero_entrega, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    Bairro<br>
+    <%= f.text_field :bairro_entrega, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    Cidade<br>
+    <%= f.text_field :cidade_entrega, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    UF<br>
+    <%= f.text_field :uf_entrega, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    CEP<br>
+    <%= f.text_field :cep_entrega, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    Telefone 1<br>
+    <%= f.text_field :tel1, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    Telefone 2<br>
+    <%= f.text_field :tel2, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    Telefone 3<br>
+    <%= f.text_field :tel3, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    Email para NFe<br>
+    <%= f.text_field :email_nfe,:type => 'email', :class => 'form-control', :placeholder=>'Digite o email'  %>
+  </div>
+  <div class="field">
+    Email para Contato<br>
+    <%= f.text_field :email_contato, :type => 'email', :class => 'form-control', :placeholder=>'Digite o email'  %>
+  </div>
+  <div class="field">
+    Características<br>
+    <select id="participante_cli_ou_for" name="participante[cli_ou_for]" class="form-control">
+    <%= options_for_select([['Cliente', 'C'], ['Fornecedor', 'F'], ['Ambos','A']], @participante.cli_ou_for) %>	
+    </select>
+  </div>
+</div>
+  <div class="actions">
+    <%= f.submit 'Gravar Participante', :class => 'btn btn-default' %>
+  </div>
+<% end %>

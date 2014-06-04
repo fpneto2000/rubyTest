@@ -1,0 +1,1 @@
+json.extract! @participante, :id, :tipo, :nome, :cnpj, :ie, :ender, :numero, :bairro, :cidade, :uf, :cep, :ender_cob, :numero_cob, :bairro_cob, :cidade_cob, :uf_cob, :cep_cob, :ender_entrega, :numero_entrega, :bairro_entrega, :cidade_entrega, :uf_entrega, :cep_entrega, :tel1, :tel2, :tel3, :email_nfe, :email_contato, :cli_ou_for, :created_at, :updated_at

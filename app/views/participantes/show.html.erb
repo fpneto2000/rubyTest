@@ -1,0 +1,173 @@
+<div class="panel panel-default" style="width: 500px;margin: 0 auto">
+	<div class="panel-heading">
+		<h4>Detalhe do Participante</h4>
+	</div>
+	<div class="panel-body">
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @participante.tipo %>
+</p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @participante.nome %>
+</p>
+
+<p>
+  <strong>CPF/CNPJ:</strong>
+  <%= @participante.cnpj %>
+</p>
+
+<p>
+  <strong>RG/Inscrição Estadual:</strong>
+  <%= @participante.ie %>
+</p>
+
+<p>
+  <strong>Endereço:</strong>
+  <%= @participante.ender %>
+</p>
+
+<p>
+  <strong>Número:</strong>
+  <%= @participante.numero %>
+</p>
+
+<p>
+  <strong>Bairro:</strong>
+  <%= @participante.bairro %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @participante.cidade %>
+</p>
+
+<p>
+  <strong>Uf:</strong>
+  <%= @participante.uf %>
+</p>
+
+<p>
+  <strong>CEP:</strong>
+  <%= @participante.cep %>
+</p>
+
+<p>
+  <strong>Endereço de cobrança:</strong>
+  <%= @participante.ender_cob %>
+</p>
+
+<p>
+  <strong>Número:</strong>
+  <%= @participante.numero_cob %>
+</p>
+
+<p>
+  <strong>Bairro:</strong>
+  <%= @participante.bairro_cob %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @participante.cidade_cob %>
+</p>
+
+<p>
+  <strong>Uf:</strong>
+  <%= @participante.uf_cob %>
+</p>
+
+<p>
+  <strong>CEP:</strong>
+  <%= @participante.cep_cob %>
+</p>
+
+<p>
+  <strong>Endereço de Entrega:</strong>
+  <%= @participante.ender_entrega %>
+</p>
+
+<p>
+  <strong>Número:</strong>
+  <%= @participante.numero_entrega %>
+</p>
+
+<p>
+  <strong>Bairro:</strong>
+  <%= @participante.bairro_entrega %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @participante.cidade_entrega %>
+</p>
+
+<p>
+  <strong>Uf:</strong>
+  <%= @participante.uf_entrega %>
+</p>
+
+<p>
+  <strong>Cep:</strong>
+  <%= @participante.cep_entrega %>
+</p>
+
+<p>
+  <strong>Telefone 1:</strong>
+  <%= @participante.tel1 %>
+</p>
+
+<p>
+  <strong>Telefone 2:</strong>
+  <%= @participante.tel2 %>
+</p>
+
+<p>
+  <strong>Telefone 3:</strong>
+  <%= @participante.tel3 %>
+</p>
+
+<p>
+  <strong>Email NFe:</strong>
+  <%= @participante.email_nfe %>
+</p>
+
+<p>
+  <strong>Email contato:</strong>
+  <%= @participante.email_contato %>
+</p>
+
+<p>
+  <strong>Característica:</strong>
+  <%= 
+    if @participante.cli_ou_for == 'C'
+    	print 'Cliente'
+    elsif @participante.cli_ou_for == 'F'
+    	print 'Fornecedor'
+    else
+    	print 'Cliente/Fornecedor'
+    end
+   %>
+</p>
+
+		<% if notice %>
+		<div class="alert alert-info">
+			<p id="notice">
+				<%= notice %>
+			</p>
+		</div>
+		<%end%>
+
+	</div>
+</div>
+
+<ul class="pager">
+	<li>
+		<%= link_to 'Editar', edit_participante_path(@participante) %>
+	</li>
+	<li>
+		<%= link_to 'Voltar', participantes_path %>
+	</li>
+</ul>

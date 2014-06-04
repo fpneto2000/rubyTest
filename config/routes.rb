@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :participantes
+
   get 'admin' => 'admin#index'
   controller :sessions do
     get    'login' => :new

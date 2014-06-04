@@ -1,0 +1,45 @@
+<% if notice %>
+   <div class="alert alert-info"><p id="notice"><%= notice %></p></div>
+<%end%>
+
+<h1>Cadastro de Participantes</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Nome</th>
+      <th>CPF/CNPJ</th>
+      <th>Bairro cob</th>
+      <th>Cidade cob</th>
+      <th>Uf cob</th>
+      <th>Telefone 1</th>
+      <th>Email contato</th>
+      <th>Características</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @participantes.each do |participante| %>
+      <tr>
+        <td><%= participante.tipo %></td>
+        <td><%= participante.nome %></td>
+        <td><%= participante.cnpj %></td>
+        <td><%= participante.bairro %></td>
+        <td><%= participante.cidade %></td>
+        <td><%= participante.uf %></td>
+        <td><%= participante.tel1 %></td>
+        <td><%= participante.email_contato %></td>
+        <td><%= participante.cli_ou_for %></td>
+        <td><%= link_to 'Mostrar', participante,:class=>'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Editar', edit_participante_path(participante),:class=>'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Apagar', participante, method: :delete,data: { confirm: 'Tem Certeza?' },:class=>'btn btn-danger btn-xs' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Participante', new_participante_path, :class=> 'btn btn-default' %>
