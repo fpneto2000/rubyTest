@@ -23,4 +23,22 @@ class Participante < ActiveRecord::Base
   validates :uf_entrega, length: { maximum: 2 }
   validates :cep_entrega, length: { maximum: 9 }
 
+  def descr_caracteristica
+       if self.cli_ou_for == 'C'
+          'Cliente'
+       elsif self.cli_ou_for == 'F'
+          'Fornecedor'
+       else
+          'Cliente/Fornecedor'
+       end
+  end
+
+  def descr_tipo
+       if self.tipo == 'F'
+          'Pessoa Fisica'
+       else
+          'Pessoa Juridica'
+       end
+  end
+
 end

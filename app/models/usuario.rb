@@ -30,6 +30,7 @@ class Usuario < ActiveRecord::Base
          self.senha = self.class.encrypt_password(password, salt)
        end
      end
+     
 
   private  
      def password_must_be_present

@@ -6,8 +6,13 @@
 
 <p>
   <strong>Tipo:</strong>
-  <%= @participante.tipo %>
+  <%= @participante.descr_tipo %>
 </p>
+<p>
+  <strong>Característica:</strong>
+  <%= @participante.descr_caracteristica   %>
+</p>
+
 
 <p>
   <strong>Nome:</strong>
@@ -137,19 +142,6 @@
 <p>
   <strong>Email contato:</strong>
   <%= @participante.email_contato %>
-</p>
-
-<p>
-  <strong>Característica:</strong>
-  <%= 
-    if @participante.cli_ou_for == 'C'
-    	print 'Cliente'
-    elsif @participante.cli_ou_for == 'F'
-    	print 'Fornecedor'
-    else
-    	print 'Cliente/Fornecedor'
-    end
-   %>
 </p>
 
 		<% if notice %>
