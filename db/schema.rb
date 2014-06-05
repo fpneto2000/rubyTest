@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140603224729) do
+ActiveRecord::Schema.define(version: 20140604234724) do
 
   create_table "departamentos", force: true do |t|
     t.string   "descr"
@@ -26,6 +26,19 @@ ActiveRecord::Schema.define(version: 20140603224729) do
     t.float    "vlrmarketing"
     t.float    "vlrembalagem"
     t.float    "vlrencargos"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "formaenvios", force: true do |t|
+    t.string   "descr",      limit: 45
+    t.integer  "prazo_dias"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "formapagtos", force: true do |t|
+    t.string   "descr",      limit: 45
     t.datetime "created_at"
     t.datetime "updated_at"
   end

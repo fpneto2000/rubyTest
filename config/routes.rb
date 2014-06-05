@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  resources :formaenvios
+
+  resources :formapagtos
+
   resources :participantes
 
   get 'admin' => 'admin#index'
+  
+  get 'sobre' => 'sobre#index'
   controller :sessions do
     get    'login' => :new
     post   'login' => :create
