@@ -1,0 +1,27 @@
+<%= form_for(@formaenvio) do |f| %>
+  <% if @formaenvio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@formaenvio.errors.count, "error") %> Dados inválidos para gravação:</h2>
+
+      <ul>
+      <% @formaenvio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<div class="form-group">
+  <div>
+    Descrição<br>
+    <%= f.text_field :descr,:class => 'form-control' %>
+  </div>
+  <div>
+    Prazo em dias<br>
+    <%= f.number_field :prazo_dias,:class => 'form-control' %>
+  </div>
+</div>
+  <div class="actions">
+    <%= f.submit 'Grava Forma de Envio', :class => 'btn btn-default' %>
+  </div>
+<% end %>

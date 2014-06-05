@@ -1,49 +1,63 @@
 <%= form_for(@usuario) do |f| %>
-  <% if @usuario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@usuario.errors.count, "error") %> Dados inválidos para gravação:</h2>
+<% if @usuario.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@usuario.errors.count, "error") %> Dados inválidos para gravação:</h2>
 
-      <ul>
-      <% @usuario.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-<div class="form-group">
-  <div class="field">
-    Nome do Usuário<br>
-    <%= f.text_field :nome, :class => 'form-control' %>
-  </div>
-  <div class="field">
-    Login<br>
-    <%= f.text_field :login, :type => 'email', :class => 'form-control', :placeholder=>'Digite o email' %>
-  </div>
-  
-  <div class="field"  style="width: 200px">
-    Nivel de Acesso<br>
-   <select id="usuario_nivel" name="usuario[nivel]" class="form-control">
-       <%= options_for_select([['Administrador', 0], ['Usuário', 1]], @usuario.nivel) %>
-   </select>    
-  </div>
-  
-  <div class="field" style="width: 200px">
-    % Comissão<br>
-    <%= f.text_field :perComiss,:class => 'form-control' %>
-  </div>
-  <div class="field">
-    Senha<br>
-    <%= f.password_field :password, :class=>'form-control' %>
-  </div>
-  <div class="field">
-    Confirmar Senha<br>
-    <%= f.password_field :password_confirmation, :class=>'form-control' %>
-  </div>
-
+	<ul>
+		<% @usuario.errors.full_messages.each do |message| %>
+		<li>
+			<%= message %>
+		</li>
+		<% end %>
+	</ul>
 </div>
-  <div class="actions">
-    <%= f.submit 'Gravar Usuário', :class => 'btn btn-default' %>
-  </div>
+<% end %>
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-12">
+			Nome do Usuário
+			<br>
+			<%= f.text_field :nome, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			Login
+			<br>
+			<%= f.text_field :login, :type => 'email', :class => 'form-control', :placeholder=>'Digite o email' %>
+		</div>
+
+		<div class="col-md-6">
+			Nivel de Acesso
+			<br>
+			<select id="usuario_nivel" name="usuario[nivel]" class="form-control">
+				<%= options_for_select([['Administrador', 0], ['Usuário', 1]], @usuario.nivel) %>
+			</select>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			% Comissão
+			<br>
+			<%= f.text_field :perComiss,:class => 'form-control' %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			Senha
+			<br>
+			<%= f.password_field :password, :class=>'form-control' %>
+		</div>
+		<div class="col-md-6">
+			Confirmar Senha
+			<br>
+			<%= f.password_field :password_confirmation, :class=>'form-control' %>
+		</div>
+	</div>
+</div>
+<div class="actions">
+	<%= f.submit 'Gravar Usuário', :class => 'btn btn-default' %>
+</div>
 <% end %>
 

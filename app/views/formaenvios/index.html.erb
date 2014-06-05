@@ -1,0 +1,27 @@
+<h1>Cadastro de Formas de Envio</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Descrição</th>
+      <th>Prazo em dias</th>
+      <th style="width: 10%" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @formaenvios.each do |formaenvio| %>
+      <tr>
+        <td><%= formaenvio.descr %></td>
+        <td><%= formaenvio.prazo_dias %></td>
+        <td><%= link_to 'Mostrar', formaenvio, :class=>'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Editar', edit_formaenvio_path(formaenvio), :class=>'btn btn-primary btn-xs'  %></td>
+        <td><%= link_to 'Excluir', formaenvio, method: :delete, data: { confirm: 'Tem Certeza?' },:class=>'btn btn-danger btn-xs' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nova Forma de Envio', new_formaenvio_path,:class=> 'btn btn-default' %>

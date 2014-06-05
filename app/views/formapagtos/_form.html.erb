@@ -1,0 +1,23 @@
+<%= form_for(@formapagto) do |f| %>
+  <% if @formapagto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@formapagto.errors.count, "error") %> Dados inválidos para gravação:</h2>
+
+      <ul>
+      <% @formapagto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<div class="form-group">
+  <div class="field">
+    Descrição<br>
+    <%= f.text_field :descr,:class => 'form-control' %>
+  </div>
+</div>
+  <div class="actions">
+    <%= f.submit 'Gravar forma de Pagto', :class => 'btn btn-default' %>
+  </div>
+<% end %>

@@ -1,0 +1,23 @@
+<div class="panel panel-default" style="width: 500px;margin: 0 auto">
+  <div class="panel-heading"><h4>Detalhe da Forma de Envio</h4></div>
+  <div class="panel-body">	
+   <p>
+     <strong>Descrição:</strong>
+     <%= @formaenvio.descr %>
+   </p>
+   <p>
+     <strong>Prazo em dias:</strong>
+     <%= @formaenvio.prazo_dias %>
+   </p>
+
+   <% if notice %>
+     <div class="alert alert-info"><p id="notice"><%= notice %></p></div> 
+   <%end%>
+   
+  </div>
+  
+</div>
+<ul class="pager">
+   <li><%= link_to 'Editar', edit_formaenvio_path(@formaenvio) %></li>
+   <li><%= link_to 'Voltar', formaenvios_path %></li>
+</ul>

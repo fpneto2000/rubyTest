@@ -1,0 +1,18 @@
+<div class="panel panel-default" style="width: 500px;margin: 0 auto">
+  <div class="panel-heading"><h4>Detalhe da Forma de Pagamento</h4></div>
+  <div class="panel-body">	
+   <p>
+     <strong>Descrição:</strong>
+     <%= @formapagto.descr %>
+   </p>
+   <% if notice %>
+     <div class="alert alert-info"><p id="notice"><%= notice %></p></div> 
+   <%end%>
+   
+  </div>
+  
+</div>
+<ul class="pager">
+   <li><%= link_to 'Editar', edit_formapagto_path(@formapagto) %></li>
+   <li><%= link_to 'Voltar', formapagtos_path %></li>
+</ul>
