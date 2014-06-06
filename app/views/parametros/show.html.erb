@@ -1,0 +1,29 @@
+<div class="panel panel-default" style="width: 800px;margin: 0 auto">
+    <div class="panel-heading">
+        <h4>Detalhe do Parâmetro</h4>
+    </div>
+    <div class="panel-body">
+        <p>
+            <strong>Cnpj:</strong>
+            <%= @parametro.cnpj %>
+        </p>
+
+        <p>
+            <strong>Razao social:</strong>
+            <%= @parametro.razao_social %>
+        </p>
+
+        <p>
+            <strong>Imposto:</strong>
+            <%= @parametro.imposto %>
+        </p>
+    </div>
+</div>
+<ul class="pager">
+<li>
+    <%= link_to 'Editar', edit_parametro_path(@parametro) %>
+</li>
+<li>
+    <%= link_to 'Voltar', parametros_path %>
+</li>
+</ul>

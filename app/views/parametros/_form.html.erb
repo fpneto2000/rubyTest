@@ -1,0 +1,36 @@
+<%= form_for(@parametro) do |f| %>
+  <% if @parametro.errors.any? %>
+    <div class="alert alert-danger">
+      <h5><%= pluralize(@parametro.errors.count, "error") %> prohibited this parametro from being saved:</h5>
+
+      <ul>
+      <% @parametro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-12">
+          Razão Social<br>
+          <%= f.text_field :razao_social,:class => 'form-control' %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+          CNPJ da Empresa<br>
+          <%= f.text_field :cnpj,:class => 'form-control' %>
+        </div>
+
+        <div class="col-md-6">
+          Imposto<br>
+          <%= f.text_field :imposto,:class => 'form-control' %>
+        </div>
+    </div>
+</div>
+  <div class="actions">
+    <%= f.submit 'Gravar Parâmetro', :class => 'btn btn-default' %>
+  </div>
+<% end %>

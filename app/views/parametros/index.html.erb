@@ -1,0 +1,29 @@
+<h1>Cadastro de Parâmetros</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>CNPJ</th>
+      <th>Razao social</th>
+      <th>Imposto</th>
+      <th style="width: 10%" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parametros.each do |parametro| %>
+      <tr>
+        <td><%= parametro.cnpj %></td>
+        <td><%= parametro.razao_social %></td>
+        <td><%= parametro.imposto %></td>
+        <td><%= link_to 'Mostrar', parametro,:class=>'btn btn-primary btn-xs'  %></td>
+        <td><%= link_to 'Editar', edit_parametro_path(parametro),:class=>'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Excluir', parametro, method: :delete, data: { confirm: 'Tem Certeza?' },:class=>'btn btn-danger btn-xs' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Parametro', new_parametro_path,:class=> 'btn btn-default'  %>

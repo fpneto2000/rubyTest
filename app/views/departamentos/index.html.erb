@@ -5,12 +5,11 @@
     <% def listar(roles,options={})
         container   = options[:container] || []
         roles.each do |role|
-           tag_aux = content_tag(:li,link_to(role.descr, role))
-
+           tag_aux = content_tag(:li,link_to(role.descr, role),:class=>"novo-bullet")
            unless container.include? (tag_aux.html_safe)
              container << tag_aux.html_safe
              unless role.children.empty?
-               container << '<ul class="breadcrumb">'
+               container << '<ul>'
                listar(role.children,{:container=>container}) unless role.children.empty?
                container << "</ul>"
              end
@@ -19,7 +18,7 @@
         container.join("\n").html_safe
       end
     %>
-    <ul class="breadcrumb">
+    <ul>
       <%= listar(Departamento.all,{:container=>@arvore}) %>
     </ul>
     <% if notice %>
@@ -33,4 +32,3 @@
 </div>
 
 <%= link_to 'Novo Departamento', new_departamento_path, :class=> 'btn btn-default' %>
-

@@ -1,8 +1,7 @@
 <%= form_for(@departamento) do |f| %>
 <% if @departamento.errors.any? %>
-<div id="error_explanation">
-	<h2><%= pluralize(@departamento.errors.count, "error") %> Dados inválidos para gravação:</h2>
-
+<div class="alert alert-danger">
+	<h5><%= pluralize(@departamento.errors.count, "error") %> Dados inválidos para gravação:</h5>
 	<ul>
 		<% @departamento.errors.full_messages.each do |message| %>
 		<li>
@@ -12,6 +11,23 @@
 	</ul>
 </div>
 <% end %>
+<% def listar(roles,options={})
+        container   = options[:container] || []
+        roles.each do |role|
+           unless role.departamento.nil?
+              tag_aux = [role.departamento.descr+'/' + role.descr,role.id]
+           else
+              tag_aux = [role.descr,role.id]
+           end 
+           unless container.include? (tag_aux)
+             container << tag_aux
+             unless role.children.empty?
+               listar(role.children,{:container=>container}) unless role.children.empty?
+             end
+           end
+        end
+        container.uniq
+end%>
 
 <div class="form-group">
 	<div class="row">
@@ -25,15 +41,17 @@
 		<div class="col-md-12">
 			Pertence ao Depto.
 			<br>
-			<select id="departamento_id" name="departamento[departamento_id]" class="form-control">
-				<option value="0">Nenhum</option>
-				<%= options_for_select(Departamento.all.collect{|c| [c.descr, c.id]}, @departamento.departamento_id) %>
-			</select>
+           <select id="departamento_id" name="departamento[departamento_id]" class="form-control">
+             <option value="0">Nenhum</option>
+             <%= options_for_select(listar(Departamento.all,{:container=>@arvore}), @departamento.departamento_id) %> 
+           </select>
 		</div>
 	</div>
 </div>
+
 <div class="actions">
 	<%= f.submit 'Gravar Departamento', :class => 'btn btn-default' %>
 </div>
 <% end %>
+
 

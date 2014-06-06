@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140605235415) do
+ActiveRecord::Schema.define(version: 20140606195207) do
 
   create_table "departamentos", force: true do |t|
     t.string   "descr"
@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(version: 20140605235415) do
 
   create_table "formapagtos", force: true do |t|
     t.string   "descr",      limit: 45
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "parametros", force: true do |t|
+    t.decimal  "cnpj",                    precision: 10, scale: 0
+    t.string   "razao_social", limit: 65
+    t.decimal  "imposto",                 precision: 10, scale: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :parametros
+
   resources :formaenvios
 
   resources :formapagtos
