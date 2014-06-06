@@ -1,18 +1,37 @@
 <div class="panel panel-default" style="width: 500px;margin: 0 auto">
-  <div class="panel-heading"><h4>Detalhe do Departamento</h4></div>
-  <div class="panel-body">	
-   <p>
-     <strong>Descrição:</strong>
-     <%= @departamento.descr %>
-   </p>
-   <% if notice %>
-     <div class="alert alert-info"><p id="notice"><%= notice %></p></div> 
-   <%end%>
-   
-  </div>
-  
+    <div class="panel-heading">
+        <h4>Detalhe do Departamento</h4>
+    </div>
+    <div class="panel-body">
+        <p>
+            <strong>Descrição:</strong>
+            <%= @departamento.descr %>
+        </p>
+        <% unless @departamento.departamento.nil? %>
+        <p>
+            <strong>Pertence ao Departamento</strong>
+            <%= @departamento.departamento.descr %>
+        </p>
+        <% end %>
+        <% if notice %>
+        <div class="alert alert-info">
+            <p id="notice">
+                <%= notice %>
+            </p>
+        </div>
+        <%end%>
+
+    </div>
+    <div class="panel-footer">
+        <div class="btn-">
+            <%= link_to 'Editar', edit_departamento_path(@departamento),:class=>'btn btn-primary btn-xs' %>
+            <%= link_to 'Apagar', departamento_path, method: :delete, data: { confirm: 'Tem Certeza?' },:class=>'btn btn-danger btn-xs' %>
+        </div>
+    </div>
 </div>
+
 <ul class="pager">
-   <li><%= link_to 'Editar', edit_departamento_path(@departamento) %></li>
-   <li><%= link_to 'Voltar', departamentos_path %></li>
+    <li>
+        <%= link_to 'Voltar', departamentos_path %>
+    </li>
 </ul>

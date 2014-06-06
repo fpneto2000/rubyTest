@@ -1,25 +1,36 @@
 <h1>Cadastro de Departamentos</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Descrição</th>
-      <th style="width: 10%" colspan="3"></th>
-    </tr>
-  </thead>
+<div class="panel">
+  <div class="panel-body">    
+    <% def listar(roles,options={})
+        container   = options[:container] || []
+        roles.each do |role|
+           tag_aux = content_tag(:li,link_to(role.descr, role))
 
-  <tbody>
-    <% @departamentos.each do |departamento| %>
-      <tr>
-        <td><%= departamento.descr %></td>
-        <td><%= link_to 'Mostrar', departamento,:class=>'btn btn-primary btn-xs' %></td>
-        <td><%= link_to 'Editar', edit_departamento_path(departamento),:class=>'btn btn-primary btn-xs' %></td>
-        <td><%= link_to 'Apagar', departamento, method: :delete, data: { confirm: 'Tem Certeza?' },:class=>'btn btn-danger btn-xs' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+           unless container.include? (tag_aux.html_safe)
+             container << tag_aux.html_safe
+             unless role.children.empty?
+               container << '<ul class="breadcrumb">'
+               listar(role.children,{:container=>container}) unless role.children.empty?
+               container << "</ul>"
+             end
+           end
+        end
+        container.join("\n").html_safe
+      end
+    %>
+    <ul class="breadcrumb">
+      <%= listar(Departamento.all,{:container=>@arvore}) %>
+    </ul>
+    <% if notice %>
+    <div class="alert alert-info">
+       <p id="notice">
+          <%= notice %>
+       </p>
+    </div>
+    <%end%>
+  </div>
+</div>
 
 <%= link_to 'Novo Departamento', new_departamento_path, :class=> 'btn btn-default' %>
+

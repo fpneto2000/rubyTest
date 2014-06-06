@@ -1,24 +1,39 @@
 <%= form_for(@departamento) do |f| %>
-  <% if @departamento.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@departamento.errors.count, "error") %> Dados inválidos para gravação:</h2>
+<% if @departamento.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@departamento.errors.count, "error") %> Dados inválidos para gravação:</h2>
 
-      <ul>
-      <% @departamento.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-<div class="form-group">
-  <div class="field">
-    Descrição<br>
-    <%= f.text_field :descr,:class => 'form-control' %>
-  </div>
+	<ul>
+		<% @departamento.errors.full_messages.each do |message| %>
+		<li>
+			<%= message %>
+		</li>
+		<% end %>
+	</ul>
 </div>
-  <div class="actions">
-    <%= f.submit 'Gravar Departamento', :class => 'btn btn-default' %>
-  </div>
+<% end %>
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-12">
+			Descrição
+			<br>
+			<%= f.text_field :descr,:class => 'form-control' %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			Pertence ao Depto.
+			<br>
+			<select id="departamento_id" name="departamento[departamento_id]" class="form-control">
+				<option value="0">Nenhum</option>
+				<%= options_for_select(Departamento.all.collect{|c| [c.descr, c.id]}, @departamento.departamento_id) %>
+			</select>
+		</div>
+	</div>
+</div>
+<div class="actions">
+	<%= f.submit 'Gravar Departamento', :class => 'btn btn-default' %>
+</div>
 <% end %>
 

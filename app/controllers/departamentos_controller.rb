@@ -5,6 +5,8 @@ class DepartamentosController < ApplicationController
   # GET /departamentos.json
   def index
     @departamentos = Departamento.all
+    
+
   end
 
   # GET /departamentos/1
@@ -61,6 +63,7 @@ class DepartamentosController < ApplicationController
     end
   end
 
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_departamento
@@ -69,6 +72,6 @@ class DepartamentosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def departamento_params
-      params.require(:departamento).permit(:descr)
+      params.require(:departamento).permit(:descr, :departamento_id, :pai)
     end
 end
