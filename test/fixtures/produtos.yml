@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descr: MyString
+  descr_externa: MyString
+  barras: MyString
+  ncm: MyString
+  marg_min: 9.99
+  marg_med: 9.99
+  marg_max: 9.99
+  unid_med: MyString
+  end_gondola: MyString
+  garantia_meses: 1
+  departamento_id: 1
+  finalidade_id: 1
+
+two:
+  descr: MyString
+  descr_externa: MyString
+  barras: MyString
+  ncm: MyString
+  marg_min: 9.99
+  marg_med: 9.99
+  marg_max: 9.99
+  unid_med: MyString
+  end_gondola: MyString
+  garantia_meses: 1
+  departamento_id: 1
+  finalidade_id: 1

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140606195207) do
+ActiveRecord::Schema.define(version: 20140610003002) do
 
   create_table "departamentos", force: true do |t|
     t.string   "descr"
@@ -81,6 +81,23 @@ ActiveRecord::Schema.define(version: 20140606195207) do
     t.string   "email_nfe",      limit: 60
     t.string   "email_contato",  limit: 60
     t.string   "cli_ou_for",     limit: 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "produtos", force: true do |t|
+    t.string   "descr",           limit: 80
+    t.string   "descr_externa",   limit: 60
+    t.string   "barras",          limit: 20
+    t.string   "ncm",             limit: 12
+    t.decimal  "marg_min",                   precision: 10, scale: 0
+    t.decimal  "marg_med",                   precision: 10, scale: 0
+    t.decimal  "marg_max",                   precision: 10, scale: 0
+    t.string   "unid_med",        limit: 5
+    t.string   "end_gondola",     limit: 20
+    t.integer  "garantia_meses"
+    t.integer  "departamento_id"
+    t.integer  "finalidade_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
