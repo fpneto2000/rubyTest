@@ -1,0 +1,89 @@
+<%= form_for(@produto) do |f| %>
+  <% if @produto.errors.any? %>
+  <div class="alert alert-danger">
+      <h5><%= pluralize(@produto.errors.count, "error") %> Dados inválidos para gravação:</h5>
+
+      <ul>
+      <% @produto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-12">
+        Descrição<br>
+        <%= f.text_field :descr,:class => 'form-control' %>
+        </div>
+    </div>
+    <div class="row">
+       <div class="col-md-12">
+       Descrição Externa<br>
+       <%= f.text_field :descr_externa,:class => 'form-control' %>
+       </div>
+    </div>
+    <div class="row">
+       <div class="col-md-3">
+       Código de Barras<br>
+       <%= f.text_field :barras,:class => 'form-control' %>
+       </div>
+       <div class="col-md-3">
+       N.C.M<br>
+       <%= f.text_field :ncm,:class => 'form-control' %>
+       </div>
+       <div class="col-md-2">
+       Marg. Mínima<br>
+       <%= f.text_field :marg_min,:class => 'form-control' %>
+       </div>
+       <div class="col-md-2">
+       Marg. Média<br>
+       <%= f.text_field :marg_med,:class => 'form-control' %>
+       </div>
+       <div class="col-md-2">
+       Marg. Máxima<br>
+       <%= f.text_field :marg_max,:class => 'form-control' %>
+       </div>
+    </div>
+    <div class="row">
+       <div class="col-md-3">
+       Unid. Medida<br>
+       <%= f.text_field :unid_med,:class => 'form-control' %>
+       </div>
+       <div class="col-md-6">
+       Endereço Gondola<br>
+       <%= f.text_field :end_gondola,:class => 'form-control' %>
+       </div>
+       <div class="col-md-3">
+       Garantia (meses)<br>
+       <%= f.number_field :garantia_meses,:class => 'form-control' %>
+       </div>
+    </div>
+    <% 
+       @departamento = Departamento.new
+       @departamentos = Departamento.all
+       @finalidade = Finalidade.new
+       @finalidades = Finalidade.all 
+    %>
+    <div class="row">
+       <div class="col-md-6">
+       Departamento<br>
+           <select id="departamento_id" name="produto[departamento_id]" class="form-control">
+             <option value="0">Escolha um departamento</option>
+             <%= options_for_select(@departamento.listar(@departamentos,{:container=>@arvore}), @produto.departamento_id) %> 
+           </select>
+       </div>
+       <div class="col-md-6">
+       Finalidade<br>
+           <select id="finalidade_id" name="produto[finalidade_id]" class="form-control">
+             <option value="0">Escolha uma finalidade</option>
+             <%= options_for_select(@finalidade.listar(@finalidades,{:contaoiner=>@arvore}), @produto.finalidade_id) %> 
+           </select>
+       </div>
+    </div>
+</div>
+<div class="actions">
+    <%= f.submit 'Gravar Produto', :class => 'btn btn-default' %>
+</div>
+<% end %>

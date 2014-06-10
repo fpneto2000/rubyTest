@@ -11,24 +11,6 @@
 	</ul>
 </div>
 <% end %>
-<% def listar(roles,options={})
-        container   = options[:container] || []
-        roles.each do |role|
-           unless role.departamento.nil?
-              tag_aux = [role.departamento.descr+'/' + role.descr,role.id]
-           else
-              tag_aux = [role.descr,role.id]
-           end 
-           unless container.include? (tag_aux)
-             container << tag_aux
-             unless role.children.empty?
-               listar(role.children,{:container=>container}) unless role.children.empty?
-             end
-           end
-        end
-        container.uniq
-end%>
-
 <div class="form-group">
 	<div class="row">
 		<div class="col-md-12">
@@ -43,7 +25,7 @@ end%>
 			<br>
            <select id="departamento_id" name="departamento[departamento_id]" class="form-control">
              <option value="0">Nenhum</option>
-             <%= options_for_select(listar(Departamento.all,{:container=>@arvore}), @departamento.departamento_id) %> 
+             <%= options_for_select(@departamento.listar(Departamento.all,{:container=>@arvore}), @departamento.departamento_id) %> 
            </select>
 		</div>
 	</div>

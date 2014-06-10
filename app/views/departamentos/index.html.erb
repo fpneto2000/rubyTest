@@ -1,11 +1,12 @@
 <h1>Cadastro de Departamentos</h1>
 
 <div class="panel">
-  <div class="panel-body">    
+  <div class="panel-body"> 
+         
     <% def listar(roles,options={})
         container   = options[:container] || []
         roles.each do |role|
-           tag_aux = content_tag(:li,link_to(role.descr, role),:class=>"novo-bullet")
+           tag_aux = content_tag(:li,link_to(role.descr, role),class: 'novo-bullet')
            unless container.include? (tag_aux.html_safe)
              container << tag_aux.html_safe
              unless role.children.empty?
@@ -21,6 +22,7 @@
     <ul>
       <%= listar(Departamento.all,{:container=>@arvore}) %>
     </ul>
+   
     <% if notice %>
     <div class="alert alert-info">
        <p id="notice">

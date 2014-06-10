@@ -1,0 +1,33 @@
+<h1>Cadastro de Produtos</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Descrição</th>
+      <th>Código de Barras</th>
+      <th>N.C.M.</th>
+      <th>Endereço de Gondola</th>
+      <th>Departamento</th>
+      <th style="width: 10%" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @produtos.each do |produto| %>
+      <tr>
+        <td><%= produto.descr %></td>
+        <td><%= produto.barras %></td>
+        <td><%= produto.ncm %></td>
+        <td><%= produto.end_gondola %></td>
+        <td><%= produto.departamento.descr %></td>
+        <td><%= link_to 'Mostrar', produto,:class=>'btn btn-primary btn-xs'  %></td>
+        <td><%= link_to 'Editar', edit_produto_path(produto),:class=>'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Excluir', produto, method: :delete, data: { confirm: 'Tem Certeza?' },:class=>'btn btn-danger btn-xs' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+
+<%= link_to 'Novo Produto', new_produto_path,:class=> 'btn btn-default' %>

@@ -10,7 +10,7 @@
              <ul class="dropdown-menu">
                <li><a href="/participantes">Participantes</a></li>
                <li class="divider"></li>
-               <li class="disabled"><a href="#">Produtos</a></li>
+               <li><a href="/produtos">Produtos</a></li>
                <li><a href="/finalidades">Finalidade</a></li>
                <li><a href="/departamentos">Departamentos</a></li>
                <li class="divider"></li>
@@ -18,7 +18,7 @@
                <li><a href="/formaenvios">Forma de Envio</a></li>
                <li class="divider"></li>
                <li><a href="/usuarios">Usuários</a></li>
-               <li><a href="/parametros">Configuraçoes</a></li>
+               <li><a href="/parametros">Configurações</a></li>
              </ul>
            </li>
            <li class="dropdown">
@@ -33,7 +33,7 @@
            
            <li class="dropdown"> 
            	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-           	 	<%=image_tag('futurexp_general_star_16.png',width: '20px', height: '20px')%>
+           	 	<%=image_tag('futurexp_general_bulb_24.png',width: '24px', height: '24px')%>
            	 	Sobre<b class="caret"></b>
            	 </a>
              <ul class="dropdown-menu">
@@ -48,12 +48,12 @@
            <li class="dropdown">
         	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         	 	<b><%= session[:usuario_nome] %> </b> 
-        	    <%=image_tag('futurexp_general_user_16.png',width: '20px', height: '20px')%>
+        	    <%=image_tag('futurexp_general_user_24.png',width: '24px', height: '24px')%>
         	 </a>
         	 <ul class="dropdown-menu">
         	    <li>
         	  	<a href="/logout">
-           	      <%=image_tag('glyphicons_388_exit.png',width: '20px', height: '20px')%>
+           	      <%=image_tag('futurexp_general_door_outside_24.png',width: '24px', height: '24px')%>
            	      Sair
            	    </a>
                 </li>
