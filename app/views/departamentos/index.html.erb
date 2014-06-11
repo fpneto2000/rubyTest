@@ -2,11 +2,11 @@
 
 <div class="panel">
   <div class="panel-body"> 
-         
+        
     <% def listar(roles,options={})
         container   = options[:container] || []
         roles.each do |role|
-           tag_aux = content_tag(:li,link_to(role.descr, role),class: 'novo-bullet')
+           tag_aux = '<li class="parent_li">' + content_tag(:span,content_tag(:i)+'*')+' '+link_to(role.descr, role)
            unless container.include? (tag_aux.html_safe)
              container << tag_aux.html_safe
              unless role.children.empty?
@@ -15,14 +15,18 @@
                container << "</ul>"
              end
            end
+           container << '</li>'
         end
         container.join("\n").html_safe
       end
     %>
+    <div class="tree">
     <ul>
-      <%= listar(Departamento.all,{:container=>@arvore}) %>
+         <%= listar(Departamento.all,{:container=>@arvore}) %>
     </ul>
-   
+    </div> 
+    
+    <!-- NOTIFICAÇOES e MENSAGENS -->
     <% if notice %>
     <div class="alert alert-info">
        <p id="notice">
@@ -30,7 +34,25 @@
        </p>
     </div>
     <%end%>
+   
   </div>
 </div>
 
 <%= link_to 'Novo Departamento', new_departamento_path, :class=> 'btn btn-default' %>
+
+<script>
+    $(function () {
+    $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+    $('.tree li.parent_li > span').on('click', function (e) {
+        var children = $(this).parent('li.parent_li').find(' > ul > li');
+        if (children.is(":visible")) {
+            children.hide('fast');
+            $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+        } else {
+            children.show('fast');
+            $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+        }
+        e.stopPropagation();
+    });
+});
+</script>

@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numero: MyString
+  custo_liq: 9.99
+  preco_venda: 9.99
+  estoque: 9.99
+  larg_ce: 9.99
+  altura_ce: 9.99
+  profund_ce: 9.99
+  larg_se: 9.99
+  altura_se: 9.99
+  profund_se: 9.99
+  peso_ce: 9.99
+  peso_se: 9.99
+  produto_id: 1
+  participante_id: 1
+  codigo_forn: MyString
+  fabricante_id: 1
+  vlr_ipi: 9.99
+  vlr_icms: 9.99
+  vlr_st: 9.99
+  vlr_dif_aliq: 9.99
+  vlr_frete: 9.99
+  vlr_desc: 9.99
+  vlr_desc_rateado: 9.99
+  vlr_encargos: 9.99
+
+two:
+  numero: MyString
+  custo_liq: 9.99
+  preco_venda: 9.99
+  estoque: 9.99
+  larg_ce: 9.99
+  altura_ce: 9.99
+  profund_ce: 9.99
+  larg_se: 9.99
+  altura_se: 9.99
+  profund_se: 9.99
+  peso_ce: 9.99
+  peso_se: 9.99
+  produto_id: 1
+  participante_id: 1
+  codigo_forn: MyString
+  fabricante_id: 1
+  vlr_ipi: 9.99
+  vlr_icms: 9.99
+  vlr_st: 9.99
+  vlr_dif_aliq: 9.99
+  vlr_frete: 9.99
+  vlr_desc: 9.99
+  vlr_desc_rateado: 9.99
+  vlr_encargos: 9.99

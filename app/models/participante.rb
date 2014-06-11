@@ -1,4 +1,7 @@
 class Participante < ActiveRecord::Base
+  has_many :series
+  has_many :fabrica, :class_name=>'Serie',:foreign_key => "fabricante_id"
+  
   validates :nome, :presence => true, :uniqueness => false, length: { maximum: 100 }
   validates :cnpj, :presence => true, :uniqueness => true, length: { maximum: 14 }
   validates :ie, :presence => true, length: { maximum: 20 }

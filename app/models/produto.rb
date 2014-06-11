@@ -1,4 +1,5 @@
 class Produto < ActiveRecord::Base
+    has_many :series
     belongs_to :departamento
     belongs_to :finalidade
     
