@@ -18,7 +18,7 @@
 		<div class="col-md-3">
 			Tipo
 			<br>
-			<select id="participante_tipo" name="participante[tipo]" class="form-control">
+			<select id="participante_tipo" name="participante[tipo]" class="form-control" onchange="getTipo(this.value)"  >
 				<%= options_for_select([['Pessoa Física', 'F'], ['Pessoa Jurídica', 'J']], @participante.tipo) %>
 			</select>
 		</div>
@@ -40,11 +40,11 @@
 		</div>
 	</div>
 
-	<div class="row">
+	<div class="row" on>
 		<div class="col-md-5">
 			CPF/CNPJ
 			<br>
-			<%= f.text_field :cnpj, size:14, :class => 'form-control input-normal' %>
+			<%= f.text_field :cnpj, :class => 'form-control input-normal',:id=>'cnpj'%>
 		</div>
 		<div class="col-md-5">
 			RG/Inscrição Estadual
@@ -212,3 +212,31 @@
 	<%= f.submit 'Gravar Participante', :class => 'btn btn-default' %>
 </div>
 <% end %>
+<script>
+
+tipo = '';
+
+
+
+function getTipo(aTipo){
+   tipo = aTipo;
+};
+
+jQuery(
+function mascara(){
+	var amascara = "";
+	if (tipo=='J'){
+  	  _mascara =  "99.999.999/9999-99";
+  	}else{
+      amascara = "999.999.999-99";	
+  	};	
+  	return amascara;
+};
+	
+function($){
+   $("#date").mask("99/99/9999");
+   $("#phone").mask("(99) 9999-9999");
+   $("#cnpj").mask(mascara());	
+     alert(tipo);
+ });
+</script>

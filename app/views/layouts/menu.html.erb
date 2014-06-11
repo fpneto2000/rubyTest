@@ -18,7 +18,7 @@
                <li><a href="/formaenvios">Forma de Envio</a></li>
                <li class="divider"></li>
                <li><a href="/usuarios">Usuários</a></li>
-               <li><a href="/parametros">Configurações</a></li>
+               <li><a href="/parametros"><span class="glyphicon glyphicon-wrench"></span> Configurações</a></li>
              </ul>
            </li>
            <li class="dropdown">
@@ -33,11 +33,11 @@
            
            <li class="dropdown"> 
            	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-           	 	<%=image_tag('futurexp_general_bulb_24.png',width: '24px', height: '24px')%>
+           	 	<span class="glyphicon glyphicon-info-sign"></span>
            	 	Sobre<b class="caret"></b>
            	 </a>
              <ul class="dropdown-menu">
-               <li><a href="/sobre"></span> Versão</a></li>
+               <li><a href="/sobre"> Versão</a></li>
                <li><a href="http://www.connexxus.com.br">Connexxus</a></li>
              </ul>
            </li>
@@ -48,12 +48,12 @@
            <li class="dropdown">
         	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         	 	<b><%= session[:usuario_nome] %> </b> 
-        	    <%=image_tag('futurexp_general_user_24.png',width: '24px', height: '24px')%>
+        	    <span class="glyphicon glyphicon-user"></span>
         	 </a>
         	 <ul class="dropdown-menu">
         	    <li>
         	  	<a href="/logout">
-           	      <%=image_tag('futurexp_general_door_outside_24.png',width: '24px', height: '24px')%>
+           	      <span class="glyphicon glyphicon-log-out"></span>
            	      Sair
            	    </a>
                 </li>
