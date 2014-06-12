@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610221735) do
+ActiveRecord::Schema.define(version: 20140612000842) do
 
   create_table "departamentos", force: true do |t|
     t.string   "descr"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20140610221735) do
   create_table "participantes", force: true do |t|
     t.string   "tipo",           limit: 1
     t.string   "nome",           limit: 60
-    t.decimal  "cnpj",                       precision: 10, scale: 0
+    t.string   "cnpj",           limit: 20
     t.string   "ie",             limit: 20
     t.string   "ender",          limit: 100
     t.string   "numero",         limit: 10

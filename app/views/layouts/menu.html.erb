@@ -5,39 +5,41 @@
         	 <%=image_tag('logo-mini.png',width: '103px', height: '50px',:class =>'img-thumbnail')%>
            </a>
         <ul class="nav navbar-nav"> 	
+          <li><a href="/admin"><span class="glyphicon glyphicon-home"></span></a></li>
+            
           <li class="dropdown">
-             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastros<b class="caret"></b></a>
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-pencil"></span> Cadastros<b class="caret"></b></a>
              <ul class="dropdown-menu">
-               <li><a href="/participantes">Participantes</a></li>
+               <li><a href="/participantes"><span class="glyphicon glyphicon-hand-right"></span> Participantes</a></li>
                <li class="divider"></li>
-               <li><a href="/produtos">Produtos</a></li>
-               <li><a href="/finalidades">Finalidade</a></li>
-               <li><a href="/departamentos">Departamentos</a></li>
+               <li><a href="/produtos"><span class="glyphicon glyphicon-barcode"></span> Produtos</a></li>
+               <li><a href="/finalidades"><span class="glyphicon glyphicon-tag"></span> Finalidade</a></li>
+               <li><a href="/departamentos"><span class="glyphicon glyphicon-tags"></span> Departamentos</a></li>
                <li class="divider"></li>
-               <li><a href="/formapagtos">Forma de Pagamento</a></li>
-               <li><a href="/formaenvios">Forma de Envio</a></li>
+               <li><a href="/formapagtos"><span class="glyphicon glyphicon-usd"></span> Forma de Pagamento</a></li>
+               <li><a href="/formaenvios"><span class="glyphicon glyphicon-envelope"></span> Forma de Envio</a></li>
                <li class="divider"></li>
-               <li><a href="/usuarios">Usuários</a></li>
-               <li><a href="/parametros">Configurações</a></li>
+               <li><a href="/usuarios"><span class="glyphicon glyphicon-user"></span> Usuários</a></li>
+               <li><a href="/parametros"><span class="glyphicon glyphicon-wrench"></span> Configurações</a></li>
              </ul>
            </li>
            <li class="dropdown">
-             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Lançamentos<b class="caret"></b></a>
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-calendar"></span> Lançamentos<b class="caret"></b></a>
              <ul class="dropdown-menu">
-               <li class="disabled"><a href="#">Compras</a></li>
-               <li class="disabled"><a href="#">Pedidos</a></li>
+               <li class="disabled"><a href="#"><span class="glyphicon glyphicon-list"></span> Compras</a></li>
+               <li class="disabled"><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Pedidos</a></li>
              </ul>
            </li>
           	
-           <li class="disabled"><a href="#">Relatórios</a></li>
+           <li class="disabled"><a href="#"><span class="glyphicon glyphicon-print"></span> Relatórios</a></li>
            
            <li class="dropdown"> 
            	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-           	 	<%=image_tag('futurexp_general_bulb_24.png',width: '24px', height: '24px')%>
+           	 	<span class="glyphicon glyphicon-info-sign"></span>
            	 	Sobre<b class="caret"></b>
            	 </a>
              <ul class="dropdown-menu">
-               <li><a href="/sobre"></span> Versão</a></li>
+               <li><a href="/sobre"> Versão</a></li>
                <li><a href="http://www.connexxus.com.br">Connexxus</a></li>
              </ul>
            </li>
@@ -48,12 +50,12 @@
            <li class="dropdown">
         	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         	 	<b><%= session[:usuario_nome] %> </b> 
-        	    <%=image_tag('futurexp_general_user_24.png',width: '24px', height: '24px')%>
+        	    <span class="glyphicon glyphicon-user"></span>
         	 </a>
         	 <ul class="dropdown-menu">
         	    <li>
         	  	<a href="/logout">
-           	      <%=image_tag('futurexp_general_door_outside_24.png',width: '24px', height: '24px')%>
+           	      <span class="glyphicon glyphicon-log-out"></span>
            	      Sair
            	    </a>
                 </li>

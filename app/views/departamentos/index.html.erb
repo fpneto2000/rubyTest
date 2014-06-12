@@ -6,7 +6,7 @@
     <% def listar(roles,options={})
         container   = options[:container] || []
         roles.each do |role|
-           tag_aux = '<li class="parent_li">' + content_tag(:span,content_tag(:i)+'*')+' '+link_to(role.descr, role)
+           tag_aux = '<li class="parent_li">' + content_tag(:span,content_tag(:i),:class=>"glyphicon glyphicon-folder-close")+' '+link_to(role.descr, role)
            unless container.include? (tag_aux.html_safe)
              container << tag_aux.html_safe
              unless role.children.empty?
@@ -39,18 +39,17 @@
 </div>
 
 <%= link_to 'Novo Departamento', new_departamento_path, :class=> 'btn btn-default' %>
-
 <script>
-    $(function () {
-    $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+	$(function () {
+    $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Recolher departamento');
     $('.tree li.parent_li > span').on('click', function (e) {
         var children = $(this).parent('li.parent_li').find(' > ul > li');
         if (children.is(":visible")) {
             children.hide('fast');
-            $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+            $(this).attr('title', 'Expandir departamento').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
         } else {
             children.show('fast');
-            $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+            $(this).attr('title', 'Recolher departamento').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
         }
         e.stopPropagation();
     });
