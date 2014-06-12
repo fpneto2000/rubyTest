@@ -8,17 +8,17 @@
 
 </head>
 <body>
-	<% if session[:usuario_id] %>
-	  <%= render file:'layouts/menu.html.erb' %>
-	<% end %>
+  <nav class="navbar navbar-default navbar-static-top navbar-fixed-top" role="navigation">
     <div class="container">
-       <div class="panel">	
-         <div class="panel-body">	
-           <%= yield %>
-         </div>
-       </div>
-    </div>
     
+	  <% if session[:usuario_id] %>
+	     <%= render file:'layouts/menu.html.erb' %>
+	  <% end %>
+    </div>
+  </nav>
+  <div style="padding-top: 70px;" class="container">
+      <%= yield %>
+  </div>  
     <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
       <div class="container">
         <p class="navbar-text">SIC - Sistema integrado Connexxus - Connexxus Tecnologia da Informação</p>
