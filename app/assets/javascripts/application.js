@@ -14,4 +14,5 @@
 //= require bootstrap
 //= require jquery_ujs
 //= require turbolinks
+//= require autoNumeric
 //= require_tree .

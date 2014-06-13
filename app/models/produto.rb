@@ -1,7 +1,11 @@
 class Produto < ActiveRecord::Base
-    has_many :series
+    has_many :serienums, :class_name => "Serienum", :foreign_key => "produto_id", dependent: :destroy
     belongs_to :departamento
     belongs_to :finalidade
+    register_currency :eur
+    monetize :marg_min
+    monetize :marg_med
+    monetize :marg_max
     
     validates :descr,:presence => { message: " - Campo obrigatorio"}, :uniqueness => {:message => "Ja existe o departamento"}, length: { maximum: 80 }
     validates :descr_externa,:presence => { message: " - Campo obrigatorio"}, length: { maximum: 60 }
@@ -17,6 +21,5 @@ class Produto < ActiveRecord::Base
     validates_numericality_of :marg_min, :greater_than => -1, :message => " - Valor deve ser maior ou igual a zero"
     validates_numericality_of :marg_med, :greater_than => -1, :message => " - Valor deve ser maior ou igual a zero"
     validates_numericality_of :marg_max, :greater_than => -1, :message => " - Valor deve ser maior ou igual a zero"
-
 
 end

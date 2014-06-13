@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140612000842) do
+ActiveRecord::Schema.define(version: 20140613211530) do
 
   create_table "departamentos", force: true do |t|
     t.string   "descr"
@@ -102,31 +102,44 @@ ActiveRecord::Schema.define(version: 20140612000842) do
     t.datetime "updated_at"
   end
 
-  create_table "series", force: true do |t|
+  create_table "serienums", force: true do |t|
     t.string   "numero"
-    t.decimal  "custo_liq",        precision: 10, scale: 0
-    t.decimal  "preco_venda",      precision: 10, scale: 0
-    t.decimal  "estoque",          precision: 10, scale: 0
-    t.decimal  "larg_ce",          precision: 10, scale: 0
-    t.decimal  "altura_ce",        precision: 10, scale: 0
-    t.decimal  "profund_ce",       precision: 10, scale: 0
-    t.decimal  "larg_se",          precision: 10, scale: 0
-    t.decimal  "altura_se",        precision: 10, scale: 0
-    t.decimal  "profund_se",       precision: 10, scale: 0
-    t.decimal  "peso_ce",          precision: 10, scale: 0
-    t.decimal  "peso_se",          precision: 10, scale: 0
+    t.decimal  "custo_liq",     precision: 10, scale: 0
+    t.decimal  "preco_venda",   precision: 10, scale: 0
+    t.decimal  "estoque",       precision: 10, scale: 0
+    t.decimal  "larg_ce",       precision: 10, scale: 0
+    t.decimal  "altura_ce",     precision: 10, scale: 0
+    t.decimal  "profund_ce",    precision: 10, scale: 0
+    t.decimal  "larg_se",       precision: 10, scale: 0
+    t.decimal  "altura_se",     precision: 10, scale: 0
+    t.decimal  "profund_se",    precision: 10, scale: 0
+    t.decimal  "peso_ce",       precision: 10, scale: 0
+    t.decimal  "peso_se",       precision: 10, scale: 0
     t.integer  "produto_id"
-    t.integer  "participante_id"
+    t.integer  "fornecedor_id"
     t.string   "codigo_forn"
     t.integer  "fabricante_id"
-    t.decimal  "vlr_ipi",          precision: 10, scale: 0
-    t.decimal  "vlr_icms",         precision: 10, scale: 0
-    t.decimal  "vlr_st",           precision: 10, scale: 0
-    t.decimal  "vlr_dif_aliq",     precision: 10, scale: 0
-    t.decimal  "vlr_frete",        precision: 10, scale: 0
-    t.decimal  "vlr_desc",         precision: 10, scale: 0
-    t.decimal  "vlr_desc_rateado", precision: 10, scale: 0
-    t.decimal  "vlr_encargos",     precision: 10, scale: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "series", force: true do |t|
+    t.string   "numero"
+    t.decimal  "custo_liq",     precision: 10, scale: 0
+    t.decimal  "preco_venda",   precision: 10, scale: 0
+    t.decimal  "estoque",       precision: 10, scale: 0
+    t.decimal  "larg_ce",       precision: 10, scale: 0
+    t.decimal  "altura_ce",     precision: 10, scale: 0
+    t.decimal  "profund_ce",    precision: 10, scale: 0
+    t.decimal  "larg_se",       precision: 10, scale: 0
+    t.decimal  "altura_se",     precision: 10, scale: 0
+    t.decimal  "profund_se",    precision: 10, scale: 0
+    t.decimal  "peso_ce",       precision: 10, scale: 0
+    t.decimal  "peso_se",       precision: 10, scale: 0
+    t.integer  "produto_id"
+    t.integer  "fornecedor_id"
+    t.string   "codigo_forn"
+    t.integer  "fabricante_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

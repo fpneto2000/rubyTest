@@ -28,7 +28,7 @@ class ProdutosController < ApplicationController
 
     respond_to do |format|
       if @produto.save
-        format.html { redirect_to @produto, notice: 'Produto was successfully created.' }
+        format.html { redirect_to @produto, notice: 'Produto criado com sucesso.' }
         format.json { render :show, status: :created, location: @produto }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ProdutosController < ApplicationController
   def update
     respond_to do |format|
       if @produto.update(produto_params)
-        format.html { redirect_to @produto, notice: 'Produto was successfully updated.' }
+        format.html { redirect_to @produto, notice: 'Produto alterado com sucesso.' }
         format.json { render :show, status: :ok, location: @produto }
       else
         format.html { render :edit }
@@ -56,11 +56,11 @@ class ProdutosController < ApplicationController
   def destroy
     @produto.destroy
     respond_to do |format|
-      format.html { redirect_to produtos_url, notice: 'Produto was successfully destroyed.' }
+      format.html { redirect_to produtos_url, notice: 'Produto excluido com sucesso.' }
       format.json { head :no_content }
     end
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_produto
@@ -71,4 +71,5 @@ class ProdutosController < ApplicationController
     def produto_params
       params.require(:produto).permit(:descr, :descr_externa, :barras, :ncm, :marg_min, :marg_med, :marg_max, :unid_med, :end_gondola, :garantia_meses, :departamento_id, :finalidade_id)
     end
+
 end

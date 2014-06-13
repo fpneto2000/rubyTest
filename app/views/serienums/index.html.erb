@@ -1,0 +1,55 @@
+<h1>Listing serienums</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Numero</th>
+      <th>Custo liq</th>
+      <th>Preco venda</th>
+      <th>Estoque</th>
+      <th>Larg ce</th>
+      <th>Altura ce</th>
+      <th>Profund ce</th>
+      <th>Larg se</th>
+      <th>Altura se</th>
+      <th>Profund se</th>
+      <th>Peso ce</th>
+      <th>Peso se</th>
+      <th>Produto</th>
+      <th>Fornecedor</th>
+      <th>Codigo forn</th>
+      <th>Fabricante</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @serienums.each do |serienum| %>
+      <tr>
+        <td><%= serienum.numero %></td>
+        <td><%= serienum.custo_liq %></td>
+        <td><%= serienum.preco_venda %></td>
+        <td><%= serienum.estoque %></td>
+        <td><%= serienum.larg_ce %></td>
+        <td><%= serienum.altura_ce %></td>
+        <td><%= serienum.profund_ce %></td>
+        <td><%= serienum.larg_se %></td>
+        <td><%= serienum.altura_se %></td>
+        <td><%= serienum.profund_se %></td>
+        <td><%= serienum.peso_ce %></td>
+        <td><%= serienum.peso_se %></td>
+        <td><%= serienum.produto_id %></td>
+        <td><%= serienum.fornecedor_id %></td>
+        <td><%= serienum.codigo_forn %></td>
+        <td><%= serienum.fabricante_id %></td>
+        <td><%= link_to 'Show', serienum %></td>
+        <td><%= link_to 'Edit', edit_serienum_path(serienum) %></td>
+        <td><%= link_to 'Destroy', serienum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Serienum', new_serienum_path %>

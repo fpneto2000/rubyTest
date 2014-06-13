@@ -13,77 +13,124 @@
 
 <div class="form-group">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
         Descrição<br>
-        <%= f.text_field :descr,:class => 'form-control' %>
+        <%= f.text_field :descr,:class => 'form-control',:maxlength=>80 %>
+        </div>
+        <div class="col-md-6">
+          Descrição Externa<br>
+          <%= f.text_field :descr_externa,:class => 'form-control',:maxlength=>60 %>
         </div>
     </div>
     <div class="row">
-       <div class="col-md-12">
-       Descrição Externa<br>
-       <%= f.text_field :descr_externa,:class => 'form-control' %>
-       </div>
-    </div>
-    <div class="row">
-       <div class="col-md-3">
+       <div class="col-md-2">
        Código de Barras<br>
-       <%= f.text_field :barras,:class => 'form-control' %>
+       <%= f.text_field :barras,:class => 'form-control',:maxlength=>20 %>
        </div>
-       <div class="col-md-3">
+       <div class="col-md-2">
        N.C.M<br>
-       <%= f.text_field :ncm,:class => 'form-control' %>
+       <%= f.text_field :ncm,:class => 'form-control',:maxlength=>12 %>
        </div>
        <div class="col-md-2">
        Marg. Mínima<br>
-       <%= f.text_field :marg_min,:class => 'form-control' %>
+       <%= f.text_field :marg_min,:maxlength=>6,:class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
        </div>
        <div class="col-md-2">
        Marg. Média<br>
-       <%= f.text_field :marg_med,:class => 'form-control' %>
+       <%= f.text_field :marg_med,:maxlength=>6,:class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
        </div>
        <div class="col-md-2">
        Marg. Máxima<br>
-       <%= f.text_field :marg_max,:class => 'form-control' %>
+       <%= f.text_field :marg_max,:maxlength=>6,:class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
        </div>
+       <div class="col-md-2">
+       Unid. Medida<br>
+       <%= f.text_field :unid_med,:class => 'form-control',:style=>"text-transform:uppercase",:maxlength=>5 %>
+       </div>
+
     </div>
     <div class="row">
-       <div class="col-md-3">
-       Unid. Medida<br>
-       <%= f.text_field :unid_med,:class => 'form-control' %>
-       </div>
-       <div class="col-md-6">
+       <div class="col-md-2">
        Endereço Gondola<br>
-       <%= f.text_field :end_gondola,:class => 'form-control' %>
+       <%= f.text_field :end_gondola,:class => 'form-control',:maxlength=>20 %>
        </div>
-       <div class="col-md-3">
+       <div class="col-md-2">
        Garantia (meses)<br>
-       <%= f.number_field :garantia_meses,:class => 'form-control' %>
+       <%= f.number_field :garantia_meses,:class => 'form-control',:maxlength=>3 %>
        </div>
-    </div>
     <% 
        @departamento = Departamento.new
        @departamentos = Departamento.all
        @finalidade = Finalidade.new
        @finalidades = Finalidade.all 
     %>
-    <div class="row">
-       <div class="col-md-6">
+       <div class="col-md-4">
        Departamento<br>
            <select id="departamento_id" name="produto[departamento_id]" class="form-control">
              <option value="0">Escolha um departamento</option>
              <%= options_for_select(@departamento.listar(@departamentos,{:container=>@arvore}), @produto.departamento_id) %> 
            </select>
        </div>
-       <div class="col-md-6">
+       <div class="col-md-4">
        Finalidade<br>
            <select id="finalidade_id" name="produto[finalidade_id]" class="form-control">
              <option value="0">Escolha uma finalidade</option>
              <%= options_for_select(@finalidade.listar(@finalidades,{:contaoiner=>@arvore}), @produto.finalidade_id) %> 
            </select>
        </div>
+       
     </div>
+    <br>
+    <% unless @produto.id.nil? %>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            <%= link_to 'Novo Número de Serie', new_serienum_path(produto_id:@produto.id),:class=>'btn btn-primary btn-xs' %>
+            </div>
+            <div class="panel-body">
+            <table class="table table-bordered table-condensed table_serie">
+                <thead>
+                    <th>Número</th>
+                    <th>Custo Liq.</th>
+                    <th>Preço Venda</th>
+                    <th>Estoque</th>
+                    <th>(LxAxP) c/emb</th>
+                    <th>(LxAxP)</th>
+                    <th>Peso c/emb</th>
+                    <th>Peso</th>
+                    <th>Fornecedor</th>
+                    <th>Fabricante</th>
+                    <th style="width:auto" colspan="1"></th>
+                        
+                </thead>
+                <tbody>
+                  <% @produto.serienums.each do |serie| %>
+                  <tr>
+                    <td><%= serie.numero %></td>
+                    <td><%= serie.custo_liq %></td>
+                    <td><%= serie.preco_venda %></td>
+                    <td><%= serie.estoque %></td>
+                    <td><%= serie.larg_ce.to_s + 'x' + serie.altura_ce.to_s + 'x' + serie.profund_ce.to_s  %></td>
+                    <td><%= serie.larg_se.to_s + 'x' + serie.altura_se.to_s + 'x' + serie.profund_se.to_s  %></td>
+                    <td><%= serie.peso_ce %></td>
+                    <td><%= serie.peso_se %></td>
+                    <td><%= unless serie.fornecedor.nil? then serie.fornecedor.nome end %></td>
+                    <td><%= unless serie.fabricante.nil? then serie.fabricante.nome end %></td>
+                    <td>
+                        <div class="btn-group">
+                        <%= link_to 'Editar', edit_serienum_path(serie),:class=>'btn-group btn-primary btn-xs' %>
+                        <%= link_to 'Excluir', serie, method: :delete, data: { confirm: 'Tem Certeza?' },:class=>'btn-group btn-danger btn-xs' %>
+                        </div>
+                    </td>
+                  </tr>
+                  <% end %>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    <%end%>
 </div>
 <div class="actions">
     <%= f.submit 'Gravar Produto', :class => 'btn btn-default' %>
 </div>
 <% end %>
+

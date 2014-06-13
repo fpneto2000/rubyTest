@@ -1,6 +1,6 @@
-class CreateSeries < ActiveRecord::Migration
+class CreateSerienums < ActiveRecord::Migration
   def change
-    create_table :series do |t|
+    create_table :serienums do |t|
       t.string :numero
       t.decimal :custo_liq
       t.decimal :preco_venda
@@ -14,17 +14,9 @@ class CreateSeries < ActiveRecord::Migration
       t.decimal :peso_ce
       t.decimal :peso_se
       t.integer :produto_id
-      t.integer :participante_id
+      t.integer :fornecedor_id
       t.string :codigo_forn
       t.integer :fabricante_id
-      t.decimal :vlr_ipi
-      t.decimal :vlr_icms
-      t.decimal :vlr_st
-      t.decimal :vlr_dif_aliq
-      t.decimal :vlr_frete
-      t.decimal :vlr_desc
-      t.decimal :vlr_desc_rateado
-      t.decimal :vlr_encargos
 
       t.timestamps
     end

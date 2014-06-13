@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :serienums
+
   resources :produtos
 
   resources :parametros
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
     post   'login' => :create
     get    'logout' => :destroy
   end
+  
   resources :finalidades
 
   resources :usuarios

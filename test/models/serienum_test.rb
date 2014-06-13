@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SerieTest < ActiveSupport::TestCase
+class SerienumTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

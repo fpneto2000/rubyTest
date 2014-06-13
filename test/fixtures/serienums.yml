@@ -14,17 +14,9 @@ one:
   peso_ce: 9.99
   peso_se: 9.99
   produto_id: 1
-  participante_id: 1
+  fornecedor_id: 1
   codigo_forn: MyString
   fabricante_id: 1
-  vlr_ipi: 9.99
-  vlr_icms: 9.99
-  vlr_st: 9.99
-  vlr_dif_aliq: 9.99
-  vlr_frete: 9.99
-  vlr_desc: 9.99
-  vlr_desc_rateado: 9.99
-  vlr_encargos: 9.99
 
 two:
   numero: MyString
@@ -40,14 +32,6 @@ two:
   peso_ce: 9.99
   peso_se: 9.99
   produto_id: 1
-  participante_id: 1
+  fornecedor_id: 1
   codigo_forn: MyString
   fabricante_id: 1
-  vlr_ipi: 9.99
-  vlr_icms: 9.99
-  vlr_st: 9.99
-  vlr_dif_aliq: 9.99
-  vlr_frete: 9.99
-  vlr_desc: 9.99
-  vlr_desc_rateado: 9.99
-  vlr_encargos: 9.99

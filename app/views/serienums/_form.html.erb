@@ -1,0 +1,83 @@
+<%= form_for(@serienum) do |f| %>
+  <% if @serienum.errors.any? %>
+    <div id="alert alert-danger">
+      <h2><%= pluralize(@serienum.errors.count, "error") %> Dados invalidos para o numero de serie:</h2>
+
+      <ul>
+      <% @serienum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<div class="form-group">
+    <div class="row">
+       <div class="col-md-12">   
+         Produto:<%= f.text_field :produto_id, :type=>'hidden' %> <h4><%= @serienum.produto.descr %></h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          Número de Serie<br>
+          <%= f.text_field :numero,:class => 'form-control',:maxlength=>40 %>
+        </div>
+        <div class="col-md-3">
+          Custo Líquido<br>
+          <%= f.text_field :custo_liq,:class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
+        </div>
+        <div class="col-md-3">
+          Preço de Venda<br>
+          <%= f.text_field :preco_venda,:class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
+        </div>
+        <div class="col-md-3">
+          Estoque<br>
+          <%= f.text_field :estoque,:class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+           Tamanho com emb. (LxAxP) 
+           <div class="input-group">
+            <%= f.text_field :larg_ce,:class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
+            <%= f.text_field :altura_ce,:class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
+            <%= f.text_field :profund_ce,:class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
+           </div>
+        </div>
+        <div class="col-md-4">
+           Tamanho sem emb. (LxAxP) 
+           <div class="input-group">
+               
+             <%= f.text_field :larg_se,:class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
+             <%= f.text_field :altura_se,:class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
+             <%= f.text_field :profund_se,:class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
+           </div>
+        </div>
+        <div class="col-md-2">
+           Peso com Emb.<br>
+           <%= f.text_field :peso_ce,:class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
+        </div>
+        <div class="col-md-2">
+           Peso sem emb.<br>
+           <%= f.text_field :peso_se,:class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
+        </div>
+  </div>
+  <div class="row">
+  <div class="col-md-4">
+    Fornecedor<br>
+    <%= f.number_field :fornecedor_id,:class => 'form-control',:maxlength=>40 %>
+  </div>
+  <div class="col-md-4">
+    Código no Fornecedor<br>
+    <%= f.text_field :codigo_forn,:class => 'form-control',:maxlength=>20 %>
+  </div>
+  <div class="col-md-4">
+    Fabricante<br>
+    <%= f.number_field :fabricante_id,:class => 'form-control',:maxlength=>40 %>
+  </div>
+  </div>
+</div>
+<div class="actions">
+    <%= f.submit 'Gravar Numero de Série', :class => 'btn btn-default' %>
+</div>
+<% end %>

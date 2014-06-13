@@ -1,0 +1,2 @@
+module SerienumsHelper
+end

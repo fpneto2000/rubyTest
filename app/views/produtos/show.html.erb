@@ -1,67 +1,114 @@
-<div class="panel panel-default" style="width: 800px;margin: 0 auto">
+<div class="panel panel-default" style="width: 1000px;margin: 0 auto">
     <div class="panel-heading">
         <h4>Detalhe do Produto</h4>
     </div>
     <div class="panel-body">
-<p>
-  <strong>Descrição:</strong>
-  <%= @produto.descr %>
-</p>
+        <div class="row">
+            <div class="col-md-6">
+                <strong>Descrição:</strong>
+                <br>
+                <%= @produto.descr %>
+            </div>
+            <div class="col-md-6">
+                <strong>Descrição externa:</strong>
+                <br>
+                <%= @produto.descr_externa %>
+            </div>
+        </div>
 
-<p>
-  <strong>Descrição externa:</strong>
-  <%= @produto.descr_externa %>
-</p>
+        <div class="row">
+            <div class="col-md-2">
+                <strong>Código de Barras:</strong>
+                <br>
+                <%= @produto.barras %>
+            </div>
+            <div class="col-md-2">
+                <strong>N.C.M:</strong>
+                <br>
+                <%= @produto.ncm %>
+            </div>
 
-<p>
-  <strong>Código de Barras:</strong>
-  <%= @produto.barras %>
-</p>
+            <div class="col-md-2">
+                <strong>Margem mínima:</strong>
+                <br>
+                <%= @produto.marg_min %>
+            </div>
+            <div class="col-md-2">
+                <strong>Margem média:</strong>
+                <br>
+                <%= @produto.marg_med %>
+            </div>
+            <div class="col-md-2">
+                <strong>Margem máxima:</strong>
+                <br>
+                <%= @produto.marg_max %>
+            </div>
+            <div class="col-md-2">
+                <strong>Unidade de medida:</strong>
+                <br>
+                <%= @produto.unid_med %>
+            </div>
 
-<p>
-  <strong>N.C.M:</strong>
-  <%= @produto.ncm %>
-</p>
+        </div>
 
-<p>
-  <strong>Margem mínima::</strong>
-  <%= @produto.marg_min %>
-</p>
-
-<p>
-  <strong>Margem média:</strong>
-  <%= @produto.marg_med %>
-</p>
-
-<p>
-  <strong>Margem máxima:</strong>
-  <%= @produto.marg_max %>
-</p>
-
-<p>
-  <strong>Unidade de medida:</strong>
-  <%= @produto.unid_med %>
-</p>
-
-<p>
-  <strong>Endereço de gondola:</strong>
-  <%= @produto.end_gondola %>
-</p>
-
-<p>
-  <strong>Garantia (meses):</strong>
-  <%= @produto.garantia_meses %>
-</p>
-
-<p>
-  <strong>Departamento:</strong>
-  <%= @produto.departamento.descr %>
-</p>
-
-<p>
-  <strong>Finalidade:</strong>
-  <%= @produto.finalidade.descr %>
-</p>
+        <div class="row">
+            <div class="col-md-3">
+                <strong>Endereço de gondola:</strong>
+                <br>
+                <%= @produto.end_gondola %>
+            </div>
+            <div class="col-md-1">
+                <strong>Garantia (meses):</strong>
+                <br>
+                <%= @produto.garantia_meses %>
+            </div>
+            <div class="col-md-4">
+                <strong>Departamento:</strong>
+                <br>
+                <%= @produto.departamento.descr %>
+            </div>
+            <div class="col-md-4">
+                <strong>Finalidade:</strong>
+                <br>
+                <%= @produto.finalidade.descr %>
+            </div>
+        </div>
+        <div>
+            <h4 class="label label-primary">Séries</h4>
+            <br>
+            <table class="table table-bordered table-condensed">
+                <thead>
+                    <th>Número</th>
+                    <th>Custo Liq.</th>
+                    <th>Preço Venda</th>
+                    <th>Estoque</th>
+                    <th>Tam.c/emb. (LxAxP)</th>
+                    <th>Tam.s/emb. (LxAxP)</th>
+                    <th>Peso c/emb.</th>
+                    <th>Peso s/emb.</th>
+                    <th>Fornecedor</th>
+                    <th>Fabricante</th>
+                    <th>Código no Fornec.</th>
+                </thead>
+                <tbody>
+                  <% @produto.serienums.each do |serie| %>
+                  <tr>
+                    <td><%= serie.numero %></td>
+                    <td><%= serie.custo_liq %></td>
+                    <td><%= serie.preco_venda %></td>
+                    <td><%= serie.estoque %></td>
+                    <td><%= serie.larg_ce.to_s + 'x' + serie.altura_ce.to_s + 'x' + serie.profund_ce.to_s  %></td>
+                    <td><%= serie.larg_se.to_s + 'x' + serie.altura_se.to_s + 'x' + serie.profund_se.to_s  %></td>
+                    <td><%= serie.peso_ce %></td>
+                    <td><%= serie.peso_se %></td>
+                    <td><%= unless serie.fornecedor.nil? then serie.fornecedor.nome end %></td>
+                    <td><%= unless serie.fabricante.nil? then serie.fabricante.nome end %></td>
+                    <td><%= serie.codigo_forn %></td>
+                  </tr>
+                  <% end %>
+                </tbody>
+            </table>
+        </div>
         <% if notice %>
         <div class="alert alert-info">
             <p id="notice">

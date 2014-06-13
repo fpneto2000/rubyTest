@@ -40,3 +40,4 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'capistrano-rails', '~> 1.0.0'
 gem 'webrick', '~> 1.3.1'
+gem 'money-rails'
