@@ -10,27 +10,27 @@
 
 		<p>
 			<strong>Valor Gateway:</strong>
-			<%= @finalidade.vlrgate %>
+			<%= number_to_currency @finalidade.vlrgate %>
 		</p>
 
 		<p>
 			<strong>Valor Comissão Marketing:</strong>
-			<%= @finalidade.vlrcomissmark %>
+			<%= number_to_currency @finalidade.vlrcomissmark %>
 		</p>
 
 		<p>
 			<strong>Valor Marketing:</strong>
-			<%= @finalidade.vlrmarketing %>
+			<%= number_to_currency @finalidade.vlrmarketing %>
 		</p>
 
 		<p>
 			<strong>Valor Embalagem:</strong>
-			<%= @finalidade.vlrembalagem %>
+			<%= number_to_currency @finalidade.vlrembalagem %>
 		</p>
 
 		<p>
 			<strong>Valor Encargos:</strong>
-			<%= @finalidade.vlrencargos %>
+			<%= number_to_currency @finalidade.vlrencargos %>
 		</p>
 		<% if notice %>
 		<div class="alert alert-info">

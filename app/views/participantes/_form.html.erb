@@ -15,82 +15,70 @@
 
 <div class="form-group">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
             Tipo
             <br>
             <select id="participante_tipo" name="participante[tipo]" class="form-control" onchange="mudaMascara(this.value)"  >
                 <%= options_for_select([['Pessoa Física', 'F'], ['Pessoa Jurídica', 'J']], @participante.tipo) %>
             </select>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             Características
             <br>
             <select id="participante_cli_ou_for" name="participante[cli_ou_for]" class="form-control">
                 <%= options_for_select([['Cliente', 'C'], ['Fornecedor', 'F'], ['Ambos','A']], @participante.cli_ou_for) %>
             </select>
         </div>
-
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8">
             Nome
             <br>
             <%= f.text_field :nome,:maxlength=>100,  :class => 'form-control' %>
         </div>
+
     </div>
 
     <div class="row" on>
-        <div class="col-md-5">
+        <div class="col-md-3">
             CPF/CNPJ
             <br>
             <%= f.text_field :cnpj, :class => 'form-control input-normal',:id=>'cnpj'%>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-3">
             RG/Inscrição Estadual
             <br>
             <%= f.text_field :ie,:maxlength=>20, :class => 'form-control' %>
         </div>
+        <div class="col-md-6">
+             Email para NFe
+             <br>
+             <%= f.text_field :email_nfe,:maxlength=>45,:type => 'email', :class => 'form-control', :placeholder=>'Digite o email'  %>
+         </div>
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+              Email para Contato
+              <br>
+              <%= f.text_field :email_contato,:maxlength=>45, :type => 'email', :class => 'form-control', :placeholder=>'Digite o email'  %>
+         </div>
+         <div class="col-md-2">
+              Telefone 1
+              <br>
+              <%= f.text_field :tel1, :class => 'form-control', :id=>"tel1" %>
+         </div>
+         <div class="col-md-2">
+              Telefone 2
+              <br>
+              <%= f.text_field :tel2, :class => 'form-control', :id=>"tel2" %>
+         </div>
+         <div class="col-md-2">
+              Telefone 3
+              <br>
+              <%= f.text_field :tel3, :class => 'form-control',:id=>"tel3" %>
+         </div>
     </div>
 
     <br>
     <div id="accordion" class="panel panel-info">
-        
-        <div class="panel-heading">Contatos</div>
-        <div class="panel-body">
-
-            <div class="row">
-                <div class="col-md-4">
-                    Telefone 1
-                    <br>
-                    <%= f.text_field :tel1, :class => 'form-control', :id=>"tel1" %>
-                </div>
-                <div class="col-md-4">
-                    Telefone 2
-                    <br>
-                    <%= f.text_field :tel2, :class => 'form-control', :id=>"tel2" %>
-                </div>
-                <div class="col-md-4">
-                    Telefone 3
-                    <br>
-                    <%= f.text_field :tel3, :class => 'form-control',:id=>"tel3" %>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    Email para NFe
-                    <br>
-                    <%= f.text_field :email_nfe,:maxlength=>45,:type => 'email', :class => 'form-control', :placeholder=>'Digite o email'  %>
-                </div>
-                <div class="col-md-6">
-                    Email para Contato
-                    <br>
-                    <%= f.text_field :email_contato,:maxlength=>45, :type => 'email', :class => 'form-control', :placeholder=>'Digite o email'  %>
-                </div>
-            </div>
-        </div>
-
         <div class="panel-heading">Endereço</div>
         <div class="panel-body">
 

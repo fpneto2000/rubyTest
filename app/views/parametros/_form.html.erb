@@ -15,18 +15,18 @@
     <div class="row">
         <div class="col-md-12">
           Razão Social<br>
-          <%= f.text_field :razao_social,:class => 'form-control' %>
+          <%= f.text_field :razao_social,:class => 'form-control', :maxlength=>65 %>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
           CNPJ da Empresa<br>
-          <%= f.text_field :cnpj,:class => 'form-control' %>
+          <%= f.text_field :cnpj,:class => 'form-control', :id=>"cnpj" %>
         </div>
 
         <div class="col-md-6">
-          Imposto<br>
-          <%= f.text_field :imposto,:class => 'form-control' %>
+          % Imposto<br>
+          <%= f.text_field :imposto,:class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
         </div>
     </div>
 </div>
@@ -34,3 +34,11 @@
     <%= f.submit 'Gravar Parâmetro', :class => 'btn btn-default' %>
   </div>
 <% end %>
+
+<script>
+    jQuery(function($) {
+        $("#cnpj").mask('99.999.999/9999-99');
+
+    });
+
+</script>

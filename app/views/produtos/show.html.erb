@@ -31,17 +31,17 @@
             <div class="col-md-2">
                 <strong>Margem mínima:</strong>
                 <br>
-                <%= @produto.marg_min %>
+                <%= number_to_percentage @produto.marg_min %>
             </div>
             <div class="col-md-2">
                 <strong>Margem média:</strong>
                 <br>
-                <%= @produto.marg_med %>
+                <%= number_to_percentage @produto.marg_med %>
             </div>
             <div class="col-md-2">
                 <strong>Margem máxima:</strong>
                 <br>
-                <%= @produto.marg_max %>
+                <%= number_to_percentage @produto.marg_max %>
             </div>
             <div class="col-md-2">
                 <strong>Unidade de medida:</strong>
@@ -73,41 +73,44 @@
                 <%= @produto.finalidade.descr %>
             </div>
         </div>
-        <div>
-            <h4 class="label label-primary">Séries</h4>
-            <br>
-            <table class="table table-bordered table-condensed">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong>Séries</strong>
+          </div>
+          <div class="panel-body">
+            <table class="table table-bordered table-condensed table_serie">
                 <thead>
                     <th>Número</th>
                     <th>Custo Liq.</th>
                     <th>Preço Venda</th>
                     <th>Estoque</th>
-                    <th>Tam.c/emb. (LxAxP)</th>
-                    <th>Tam.s/emb. (LxAxP)</th>
-                    <th>Peso c/emb.</th>
-                    <th>Peso s/emb.</th>
+                    <th>(LxAxP) c/emb</th>
+                    <th>(LxAxP)</th>
+                    <th>Peso c/emb</th>
+                    <th>Peso</th>
                     <th>Fornecedor</th>
-                    <th>Fabricante</th>
                     <th>Código no Fornec.</th>
+                    <th>Fabricante</th>
                 </thead>
                 <tbody>
                   <% @produto.serienums.each do |serie| %>
                   <tr>
                     <td><%= serie.numero %></td>
-                    <td><%= serie.custo_liq %></td>
-                    <td><%= serie.preco_venda %></td>
+                    <td><%= number_to_currency serie.custo_liq %></td>
+                    <td><%= number_to_currency serie.preco_venda %></td>
                     <td><%= serie.estoque %></td>
                     <td><%= serie.larg_ce.to_s + 'x' + serie.altura_ce.to_s + 'x' + serie.profund_ce.to_s  %></td>
                     <td><%= serie.larg_se.to_s + 'x' + serie.altura_se.to_s + 'x' + serie.profund_se.to_s  %></td>
                     <td><%= serie.peso_ce %></td>
                     <td><%= serie.peso_se %></td>
                     <td><%= unless serie.fornecedor.nil? then serie.fornecedor.nome end %></td>
-                    <td><%= unless serie.fabricante.nil? then serie.fabricante.nome end %></td>
                     <td><%= serie.codigo_forn %></td>
+                    <td><%= unless serie.fabricante.nil? then serie.fabricante.nome end %></td>
                   </tr>
                   <% end %>
                 </tbody>
             </table>
+          </div>
         </div>
         <% if notice %>
         <div class="alert alert-info">

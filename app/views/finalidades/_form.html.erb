@@ -18,39 +18,39 @@
 		<div class="col-md-12">
 			Descrição
 			<br>
-			<%= f.text_field :descr,:class => 'form-control in' %>
+			<%= f.text_field :descr,:class => 'form-control in', maxlength:45 %>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6">
 			Valor Gateway
 			<br>
-			<%= f.text_field :vlrgate,:class => 'form-control' %>
+			<%= f.text_field :vlrgate,:class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
 		</div>
 		<div class="col-md-6">
 			Valor comissão Marketing
 			<br>
-			<%= f.text_field :vlrcomissmark,:class => 'form-control' %>
+			<%= f.text_field :vlrcomissmark,:class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6">
 			Valor Marketing
 			<br>
-			<%= f.text_field :vlrmarketing,:class => 'form-control' %>
+			<%= f.text_field :vlrmarketing,:class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
 			
 		</div>
 		<div class="col-md-6">
 			Valor Embalagem
 			<br>
-			<%= f.text_field :vlrembalagem,:class => 'form-control' %>
+			<%= f.text_field :vlrembalagem,:class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6">
 			Valor Encargos
 			<br>
-			<%= f.text_field :vlrencargos,:class => 'form-control' %>
+			<%= f.text_field :vlrencargos,:class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
 		</div>
 	</div>
 </div>

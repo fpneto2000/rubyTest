@@ -1,6 +1,6 @@
 <div class="panel panel-default" style="width:600px;margin: 0 auto">
   <div class="panel panel-body">
-  <center><h3>Bem vindo <%= session[:usuario_nome] %> ao</h2></center>
+  <center><h3>Bem vindo <%= session[:usuario_nome].capitalize %> ao</h2></center>
   <center><h2><span class="label label-primary">SIC - Sistema Integrado Connexxus</span></h2></center>
   <center><h4></h4><%= Time.now.strftime("%d/%m/%y - %H:%M") %></h3></center> 
   </div>

@@ -21,7 +21,7 @@
 
 		<p>
 			<strong>% Comissão:</strong>
-			<%= @usuario.perComiss %>
+			<%= number_to_percentage @usuario.perComiss %>
 		</p>
 		<% if notice %>
 		<div class="alert alert-info">

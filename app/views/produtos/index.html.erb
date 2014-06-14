@@ -5,9 +5,11 @@
     <tr>
       <th>Descrição</th>
       <th>Código de Barras</th>
-      <th>N.C.M.</th>
-      <th>Endereço de Gondola</th>
+      <th>End. Gondola</th>
       <th>Departamento</th>
+      <th>Estoque</th>
+      <th> > Venda</th>
+      <th> > Custo</th>
       <th style="width: 10%" colspan="3"></th>
     </tr>
   </thead>
@@ -17,9 +19,11 @@
       <tr>
         <td><%= produto.descr %></td>
         <td><%= produto.barras %></td>
-        <td><%= produto.ncm %></td>
         <td><%= produto.end_gondola %></td>
         <td><%= produto.departamento.descr %></td>
+        <td><%= produto.serienums.sum("estoque") %></td>
+        <td><%= number_to_currency produto.serienums.maximum("preco_venda")%></td>
+        <td><%= number_to_currency produto.serienums.maximum("custo_liq") %></td>
         <td><%= link_to 'Mostrar', produto,:class=>'btn btn-primary btn-xs'  %></td>
         <td><%= link_to 'Editar', edit_produto_path(produto),:class=>'btn btn-primary btn-xs' %></td>
         <td><%= link_to 'Excluir', produto, method: :delete, data: { confirm: 'Tem Certeza?' },:class=>'btn btn-danger btn-xs' %></td>

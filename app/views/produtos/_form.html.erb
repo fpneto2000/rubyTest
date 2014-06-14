@@ -106,8 +106,8 @@
                   <% @produto.serienums.each do |serie| %>
                   <tr>
                     <td><%= serie.numero %></td>
-                    <td><%= serie.custo_liq %></td>
-                    <td><%= serie.preco_venda %></td>
+                    <td><%= number_to_currency serie.custo_liq %></td>
+                    <td><%= number_to_currency serie.preco_venda %></td>
                     <td><%= serie.estoque %></td>
                     <td><%= serie.larg_ce.to_s + 'x' + serie.altura_ce.to_s + 'x' + serie.profund_ce.to_s  %></td>
                     <td><%= serie.larg_se.to_s + 'x' + serie.altura_se.to_s + 'x' + serie.profund_se.to_s  %></td>

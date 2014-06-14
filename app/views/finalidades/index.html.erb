@@ -17,11 +17,11 @@
     <% @finalidades.each do |finalidade| %>
       <tr>
         <td><%= finalidade.descr %></td>
-        <td><%= finalidade.vlrgate %></td>
-        <td><%= finalidade.vlrcomissmark %></td>
-        <td><%= finalidade.vlrmarketing %></td>
-        <td><%= finalidade.vlrembalagem %></td>
-        <td><%= finalidade.vlrencargos %></td>
+        <td><%= number_to_currency finalidade.vlrgate %></td>
+        <td><%= number_to_currency finalidade.vlrcomissmark %></td>
+        <td><%= number_to_currency finalidade.vlrmarketing %></td>
+        <td><%= number_to_currency finalidade.vlrembalagem %></td>
+        <td><%= number_to_currency finalidade.vlrencargos %></td>
         <td><%= link_to 'Mostrar', finalidade,:class=>'btn btn-primary btn-xs'  %></td>
         <td><%= link_to 'Editar', edit_finalidade_path(finalidade),:class=>'btn btn-primary btn-xs' %></td>
         <td><%= link_to 'Excluir', finalidade, method: :delete, data: { confirm: 'Tem Certeza?' },:class=>'btn btn-danger btn-xs' %></td>

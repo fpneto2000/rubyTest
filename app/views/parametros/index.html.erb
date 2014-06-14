@@ -15,7 +15,7 @@
       <tr>
         <td><%= parametro.cnpj %></td>
         <td><%= parametro.razao_social %></td>
-        <td><%= parametro.imposto %></td>
+        <td><%= number_to_percentage parametro.imposto %></td>
         <td><%= link_to 'Mostrar', parametro,:class=>'btn btn-primary btn-xs'  %></td>
         <td><%= link_to 'Editar', edit_parametro_path(parametro),:class=>'btn btn-primary btn-xs' %></td>
         <td><%= link_to 'Excluir', parametro, method: :delete, data: { confirm: 'Tem Certeza?' },:class=>'btn btn-danger btn-xs' %></td>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Parametro', new_parametro_path,:class=> 'btn btn-default'  %>
+<%= if @parametros.count == 0 then  link_to 'Novo Parametro', new_parametro_path,:class=> 'btn btn-default' end %>
