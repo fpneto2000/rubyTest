@@ -1,7 +1,7 @@
 <%= form_for(@serienum) do |f| %>
   <% if @serienum.errors.any? %>
-    <div id="alert alert-danger">
-      <h2><%= pluralize(@serienum.errors.count, "error") %> Dados invalidos para o numero de serie:</h2>
+   <div class="alert alert-danger">
+      <h5><%= pluralize(@serienum.errors.count, "error") %> Dados invalidos para o numero de serie:</h5>
 
       <ul>
       <% @serienum.errors.full_messages.each do |message| %>

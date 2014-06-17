@@ -128,6 +128,14 @@
             </div>
         </div>
     <%end%>
+      <% if notice %>
+        <div class="alert alert-info">
+            <p id="notice">
+                <%= notice %>
+            </p>
+        </div>
+  <%end%>
+
 </div>
 <div class="actions">
     <%= f.submit 'Gravar Produto', :class => 'btn btn-default' %>

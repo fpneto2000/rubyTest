@@ -1,165 +1,236 @@
-<div class="panel panel-default" style="width: 500px;margin: 0 auto">
-	<div class="panel-heading">
-		<h4>Detalhe do Participante</h4>
-	</div>
-	<div class="panel-body">
+<div class="panel panel-default" style="width: 1000px;margin: 0 auto">
+    <div class="panel-heading">
+        <h4>Detalhe do Participante</h4>
+    </div>
+    <div class="panel-body">
 
-<p>
-  <strong>Tipo:</strong>
-  <%= @participante.descr_tipo %>
-</p>
-<p>
-  <strong>Característica:</strong>
-  <%= @participante.descr_caracteristica   %>
-</p>
+        <div class="row">
+            <div class="col-md-8">
+                <h4><%= @participante.nome %></h4>
+            </div>
 
+            <div class="col-md-2">
+                <strong>Tipo:</strong>
+                <br>
+                <%= @participante.descr_tipo %>
+            </div>
+            <div classa="col-md-2">
+                <strong>Característica:</strong>
+                <br>
+                <%= @participante.descr_caracteristica %>
+            </div>
+        </div>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @participante.nome %>
-</p>
+        <div class="row">
+            <div class="col-md-3">
+                <strong>CPF/CNPJ:</strong>
+                <br>
+                <%= @participante.cnpj %>
+            </div>
+            <div class="col-md-3">
+                <strong>RG/Inscrição Estadual:</strong>
+                <br>
+                <%= @participante.ie %>
+            </div>
+            <div class="col-md-6">
+                <strong>Email NFe:</strong>
+                <br>
+                <%= @participante.email_nfe %>
+            </div>
+        </div>
 
-<p>
-  <strong>CPF/CNPJ:</strong>
-  <%= @participante.cnpj %>
-</p>
+        <div class="row">
+            <div class="col-md-6">
+                <strong>Email contato:</strong>
+                <br>
+                <%= @participante.email_contato %>
+            </div>
+            <div class="col-md-2">
+                <strong>Telefone 1:</strong>
+                <br>
+                <%= @participante.tel1 %>
+            </div>
 
-<p>
-  <strong>RG/Inscrição Estadual:</strong>
-  <%= @participante.ie %>
-</p>
+            <div class="col-md-2">
+                <strong>Telefone 2:</strong>
+                <br>
+                <%= @participante.tel2 %>
+            </div>
 
-<p>
-  <strong>Endereço:</strong>
-  <%= @participante.ender %>
-</p>
+            <div class="col-md-2">
+                <strong>Telefone 3:</strong>
+                <br>
+                <%= @participante.tel3 %>
+            </div>
+        </div>
+        <br>
+        <div id="accordion" class="panel panel-info">
+            <div class="panel-heading">
+                Endereço
+            </div>
+            <div class="panel-body">
 
-<p>
-  <strong>Número:</strong>
-  <%= @participante.numero %>
-</p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>Logradouro:</strong>
+                        <br>
+                        <%= @participante.ender %>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong>Número:</strong>
+                        <br>
+                        <%= @participante.numero %>
+                    </div>
 
-<p>
-  <strong>Bairro:</strong>
-  <%= @participante.bairro %>
-</p>
+                    <div class="col-md-8">
+                        <strong>Bairro:</strong>
+                        <br>
+                        <%= @participante.bairro %>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <strong>Cidade:</strong>
+                        <br>
+                        <%= @participante.cidade %>
+                    </div>
 
-<p>
-  <strong>Cidade:</strong>
-  <%= @participante.cidade %>
-</p>
+                    <div class="col-md-2">
+                        <strong>Uf:</strong>
+                        <br>
+                        <%= @participante.uf %>
+                    </div>
 
-<p>
-  <strong>Uf:</strong>
-  <%= @participante.uf %>
-</p>
+                    <div class="col-md-3">
+                        <strong>CEP:</strong>
+                        <br>
+                        <%= @participante.cep %>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-heading">
+                Endereço de Cobrança
+            </div>
+            <div class="panel-body">
 
-<p>
-  <strong>CEP:</strong>
-  <%= @participante.cep %>
-</p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>Logradouro:</strong>
+                        <br>
+                        <%= @participante.ender_cob %>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong>Número:</strong>
+                        <br>
+                        <%= @participante.numero_cob %>
+                    </div>
 
-<p>
-  <strong>Endereço de cobrança:</strong>
-  <%= @participante.ender_cob %>
-</p>
+                    <div class="col-md-8">
+                        <strong>Bairro:</strong>
+                        <br>
+                        <%= @participante.bairro_cob %>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <strong>Cidade:</strong>
+                        <br>
+                        <%= @participante.cidade_cob %>
+                    </div>
 
-<p>
-  <strong>Número:</strong>
-  <%= @participante.numero_cob %>
-</p>
+                    <div class="col-md-2">
+                        <strong>Uf:</strong>
+                        <br>
+                        <%= @participante.uf_cob %>
+                    </div>
 
-<p>
-  <strong>Bairro:</strong>
-  <%= @participante.bairro_cob %>
-</p>
+                    <div class="col-md-3">
+                        <strong>CEP:</strong>
+                        <br>
+                        <%= @participante.cep_cob %>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-heading">
+                Endereço de Entrega
+            </div>
+            <div class="panel-body">
 
-<p>
-  <strong>Cidade:</strong>
-  <%= @participante.cidade_cob %>
-</p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>Logradouro:</strong>
+                        <br>
+                        <%= @participante.ender_entrega %>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong>Número:</strong>
+                        <br>
+                        <%= @participante.numero_entrega %>
+                    </div>
 
-<p>
-  <strong>Uf:</strong>
-  <%= @participante.uf_cob %>
-</p>
+                    <div class="col-md-8">
+                        <strong>Bairro:</strong>
+                        <br>
+                        <%= @participante.bairro_entrega %>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <strong>Cidade:</strong>
+                        <br>
+                        <%= @participante.cidade_entrega %>
+                    </div>
 
-<p>
-  <strong>CEP:</strong>
-  <%= @participante.cep_cob %>
-</p>
+                    <div class="col-md-2">
+                        <strong>Uf:</strong>
+                        <br>
+                        <%= @participante.uf_entrega %>
+                    </div>
 
-<p>
-  <strong>Endereço de Entrega:</strong>
-  <%= @participante.ender_entrega %>
-</p>
+                    <div class="col-md-3">
+                        <strong>CEP:</strong>
+                        <br>
+                        <%= @participante.cep_entrega %>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<p>
-  <strong>Número:</strong>
-  <%= @participante.numero_entrega %>
-</p>
+        <% if notice %>
+        <div class="alert alert-info">
+            <p id="notice">
+                <%= notice %>
+            </p>
+        </div>
+        <%end%>
 
-<p>
-  <strong>Bairro:</strong>
-  <%= @participante.bairro_entrega %>
-</p>
-
-<p>
-  <strong>Cidade:</strong>
-  <%= @participante.cidade_entrega %>
-</p>
-
-<p>
-  <strong>Uf:</strong>
-  <%= @participante.uf_entrega %>
-</p>
-
-<p>
-  <strong>Cep:</strong>
-  <%= @participante.cep_entrega %>
-</p>
-
-<p>
-  <strong>Telefone 1:</strong>
-  <%= @participante.tel1 %>
-</p>
-
-<p>
-  <strong>Telefone 2:</strong>
-  <%= @participante.tel2 %>
-</p>
-
-<p>
-  <strong>Telefone 3:</strong>
-  <%= @participante.tel3 %>
-</p>
-
-<p>
-  <strong>Email NFe:</strong>
-  <%= @participante.email_nfe %>
-</p>
-
-<p>
-  <strong>Email contato:</strong>
-  <%= @participante.email_contato %>
-</p>
-
-		<% if notice %>
-		<div class="alert alert-info">
-			<p id="notice">
-				<%= notice %>
-			</p>
-		</div>
-		<%end%>
-
-	</div>
+    </div>
 </div>
-
 <ul class="pager">
-	<li>
-		<%= link_to 'Editar', edit_participante_path(@participante) %>
-	</li>
-	<li>
-		<%= link_to 'Voltar', participantes_path %>
-	</li>
+    <li>
+        <%= link_to 'Editar', edit_participante_path(@participante) %>
+    </li>
+    <li>
+        <%= link_to 'Voltar', participantes_path %>
+    </li>
 </ul>
+<script>
+	$(function() {
+
+		var icons = {
+			header : "glyphicon glyphicon-chevron-right",
+			activeHeader : "glyphicon glyphicon-chevron-down"
+		};
+
+		$("#accordion").accordion({
+			icons : icons,
+		});
+	});
+
+</script>
