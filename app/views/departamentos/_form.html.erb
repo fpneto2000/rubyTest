@@ -16,7 +16,7 @@
 		<div class="col-md-12">
 			Descrição
 			<br>
-			<%= f.text_field :descr,:class => 'form-control' %>
+			<%= f.text_field :descr,:class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
 		</div>
 	</div>
 	<div class="row">

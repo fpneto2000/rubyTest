@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @entrada_nf.numero %>
+</p>
+
+<p>
+  <strong>Serie nf:</strong>
+  <%= @entrada_nf.serie_nf %>
+</p>
+
+<p>
+  <strong>Participante:</strong>
+  <%= @entrada_nf.participante_id %>
+</p>
+
+<p>
+  <strong>Data emiss:</strong>
+  <%= @entrada_nf.data_emiss %>
+</p>
+
+<p>
+  <strong>Data entrada:</strong>
+  <%= @entrada_nf.data_entrada %>
+</p>
+
+<p>
+  <strong>Vlr frete:</strong>
+  <%= @entrada_nf.vlr_frete %>
+</p>
+
+<p>
+  <strong>Vlr encargos:</strong>
+  <%= @entrada_nf.vlr_encargos %>
+</p>
+
+<p>
+  <strong>Vlr desc:</strong>
+  <%= @entrada_nf.vlr_desc %>
+</p>
+
+<p>
+  <strong>Vlr dif aliq:</strong>
+  <%= @entrada_nf.vlr_dif_aliq %>
+</p>
+
+<p>
+  <strong>Tot icms:</strong>
+  <%= @entrada_nf.tot_icms %>
+</p>
+
+<p>
+  <strong>Tot produtos:</strong>
+  <%= @entrada_nf.tot_produtos %>
+</p>
+
+<p>
+  <strong>Tot nf:</strong>
+  <%= @entrada_nf.tot_nf %>
+</p>
+
+<%= link_to 'Edit', edit_entrada_nf_path(@entrada_nf) %> |
+<%= link_to 'Back', entrada_nfs_path %>

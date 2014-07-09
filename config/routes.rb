@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :entrada_nfs
+
   resources :serienums
 
   resources :produtos

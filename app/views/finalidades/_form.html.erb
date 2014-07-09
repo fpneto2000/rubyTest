@@ -18,7 +18,7 @@
 		<div class="col-md-12">
 			Descrição
 			<br>
-			<%= f.text_field :descr,:class => 'form-control in', maxlength:45 %>
+			<%= f.text_field :descr,:class => 'form-control in', maxlength:45,:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
 		</div>
 	</div>
 	<div class="row">

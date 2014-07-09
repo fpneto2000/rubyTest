@@ -28,7 +28,7 @@ class UsuariosController < ApplicationController
 
     respond_to do |format|
       if @usuario.save
-        format.html { redirect_to usuarios_url, notice: 'Usuario #{@usuario.nome} criado com sucesso.' }
+        format.html { redirect_to usuarios_url, notice: 'Usuario criado com sucesso.' }
         format.json { render :show, status: :created, location: @usuario }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class UsuariosController < ApplicationController
   def update
     respond_to do |format|
       if @usuario.update(usuario_params)
-        format.html { redirect_to usuarios_url, notice: 'Usuario #{@usuario.nome} alterado com sucesso.' }
+        format.html { redirect_to usuarios_url, notice: 'Usuario alterado com sucesso.' }
         format.json { render :show, status: :ok, location: @usuario }
       else
         format.html { render :edit }

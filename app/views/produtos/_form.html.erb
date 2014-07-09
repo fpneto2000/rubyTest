@@ -15,11 +15,11 @@
     <div class="row">
         <div class="col-md-6">
         Descrição<br>
-        <%= f.text_field :descr,:class => 'form-control',:maxlength=>80 %>
+        <%= f.text_field :descr,:class => 'form-control',:maxlength=>80,:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
         </div>
         <div class="col-md-6">
           Descrição Externa<br>
-          <%= f.text_field :descr_externa,:class => 'form-control',:maxlength=>60 %>
+          <%= f.text_field :descr_externa,:class => 'form-control',:maxlength=>60,:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
         </div>
     </div>
     <div class="row">
@@ -45,18 +45,18 @@
        </div>
        <div class="col-md-2">
        Unid. Medida<br>
-       <%= f.text_field :unid_med,:class => 'form-control',:style=>"text-transform:uppercase",:maxlength=>5 %>
+       <%= f.text_field :unid_med,:class => 'form-control',:maxlength=>5,:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
        </div>
 
     </div>
     <div class="row">
        <div class="col-md-2">
        Endereço Gondola<br>
-       <%= f.text_field :end_gondola,:class => 'form-control',:maxlength=>20 %>
+       <%= f.text_field :end_gondola,:class => 'form-control',:maxlength=>20,:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
        </div>
        <div class="col-md-2">
        Garantia (meses)<br>
-       <%= f.number_field :garantia_meses,:class => 'form-control',:maxlength=>3 %>
+       <%= f.text_field :garantia_meses,:class => 'form-control',:maxlength=>3,:onkeypress=>'return SomenteNumero(event)' %>
        </div>
     <% 
        @departamento = Departamento.new

@@ -11,13 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614145047) do
+ActiveRecord::Schema.define(version: 20140617002713) do
 
   create_table "departamentos", force: true do |t|
     t.string   "descr"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "departamento_id"
+  end
+
+  create_table "entrada_nfs", force: true do |t|
+    t.integer  "numero"
+    t.string   "serie_nf",        limit: 5
+    t.integer  "participante_id"
+    t.date     "data_emiss"
+    t.date     "data_entrada"
+    t.decimal  "vlr_frete",                 precision: 10, scale: 0
+    t.decimal  "vlr_encargos",              precision: 10, scale: 0
+    t.decimal  "vlr_desc",                  precision: 10, scale: 0
+    t.decimal  "vlr_dif_aliq",              precision: 10, scale: 0
+    t.decimal  "tot_icms",                  precision: 10, scale: 0
+    t.decimal  "tot_produtos",              precision: 10, scale: 0
+    t.decimal  "tot_nf",                    precision: 10, scale: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "finalidades", force: true do |t|

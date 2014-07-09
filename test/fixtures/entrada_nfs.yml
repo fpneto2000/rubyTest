@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numero: 1
+  serie_nf: MyString
+  participante_id: 1
+  data_emiss: 2014-06-16
+  data_entrada: 2014-06-16
+  vlr_frete: 9.99
+  vlr_encargos: 9.99
+  vlr_desc: 9.99
+  vlr_dif_aliq: 9.99
+  tot_icms: 9.99
+  tot_produtos: 9.99
+  tot_nf: 9.99
+
+two:
+  numero: 1
+  serie_nf: MyString
+  participante_id: 1
+  data_emiss: 2014-06-16
+  data_entrada: 2014-06-16
+  vlr_frete: 9.99
+  vlr_encargos: 9.99
+  vlr_desc: 9.99
+  vlr_dif_aliq: 9.99
+  tot_icms: 9.99
+  tot_produtos: 9.99
+  tot_nf: 9.99

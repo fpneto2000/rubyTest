@@ -17,6 +17,14 @@
             <strong>Imposto:</strong>
             <%= number_to_percentage @parametro.imposto %>
         </p>
+        <% if notice %>
+        <div class="alert alert-info">
+            <p id="notice">
+                <%= notice %>
+            </p>
+        </div>
+        <%end%>
+        
     </div>
 </div>
 <ul class="pager">

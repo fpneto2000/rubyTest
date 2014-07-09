@@ -14,7 +14,7 @@
 <div class="form-group">
   <div>
     Descrição<br>
-    <%= f.text_field :descr,:class => 'form-control' %>
+    <%= f.text_field :descr,:class => 'form-control',maxlenght:45,:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
   </div>
   <div>
     Prazo em dias<br>

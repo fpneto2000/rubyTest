@@ -1,0 +1,87 @@
+<%= form_for(@entrada_nf) do |f| %>
+  <% if @entrada_nf.errors.any? %>
+    <div class="alert alert-danger">
+      <h5><%= pluralize(@entrada_nf.errors.count, "error") %> Dados inválidos para gravação:</h5>
+
+      <ul>
+      <% @entrada_nf.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+  <div class="row">
+  <div class="col-md-2">
+    Número<br>
+    <%= f.number_field :numero, :class => 'form-control' %>
+  </div>
+  <div class="col-md-2">
+    Série<br>
+    <%= f.text_field :serie_nf, :class => 'form-control' %>
+  </div>
+      <% 
+       @fornecedor = Participante.new
+       @fornecedores = Participante.where("cli_ou_for <> 'C'")
+    %>
+  
+  <div class="col-md-8">
+    Fornecedor<br>
+    <select id="participante_id" name="entrada_nf[participante_id]" class="form-control">
+             <option value="0">Escolha um fornecedor</option>
+             <%= options_for_select(@fornecedor.listar(@fornecedores,{:container=>@arvore}), @entrada_nf.participante_id) %> 
+    </select>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-md-2">
+    Data Emissão<br>
+    <%= f.text_field :data_emiss, :class => 'form-control',:id=>"datepicker1" %>
+  </div>
+  <div class="col-md-2">
+    Data de Entrada<br>
+    <%= f.text_field :data_entrada, :class => 'form-control', :id=>"datepicker2" %>
+  </div>
+  <div class="col-md-2">
+    Valor do Frete<br>
+    <%= f.text_field :vlr_frete, :class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
+  </div>
+  <div class="col-md-2">
+    Valor de encargos<br>
+    <%= f.text_field :vlr_encargos, :class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
+  </div>
+  <div class="col-md-2">
+    Valor de Desconto<br>
+    <%= f.text_field :vlr_desc, :class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
+  </div>
+  <div class="col-md-2">
+    Dif. Aliquota<br>
+    <%= f.text_field :vlr_dif_aliq, :class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-md-2">
+    Total ICMS<br>
+    <%= f.text_field :tot_icms, :class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
+  </div>
+  <div class="col-md-2">
+    Total dos Produtos<br>
+    <%= f.text_field :tot_produtos, :class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
+  </div>
+  <div class="col-md-2">
+    Total da NF<br>
+    <%= f.text_field :tot_nf, :class => 'form-control', data: { role: 'money', a_sep: '', a_dec: '.' } %>
+  </div>
+  </div>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Gravar NF', :class => 'btn btn-default' %>
+  </div>
+<% end %>
+<script>
+    $(function() {
+    $( "#datepicker1" ).datepicker();
+    $( "#datepicker2" ).datepicker();
+
+  });
+</script>
