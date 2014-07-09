@@ -1,47 +1,43 @@
-<h1>Listing entrada_nfs</h1>
+<h4>Notas Fiscais de Compra</h4>
 
-<table>
+<table class="table table-condensed table-striped">
   <thead>
     <tr>
-      <th>Numero</th>
-      <th>Serie nf</th>
-      <th>Participante</th>
-      <th>Data emiss</th>
-      <th>Data entrada</th>
-      <th>Vlr frete</th>
-      <th>Vlr encargos</th>
-      <th>Vlr desc</th>
-      <th>Vlr dif aliq</th>
-      <th>Tot icms</th>
-      <th>Tot produtos</th>
-      <th>Tot nf</th>
-      <th colspan="3"></th>
+      <th>NF/Serie</th>
+      <th>Fornecedor</th>
+      <th>Dt.Emiss</th>
+      <th>Dt.Entrada</th>
+      <th>Frete</th>
+      <th>Encargos</th>
+      <th>Desc.</th>
+      <th>Dif.Aliq</th>
+      <th>Tot Icms</th>
+      <th>Tot Prod.</th>
+      <th>Tot NF</th>
+      <th style="width: 10%" colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @entrada_nfs.each do |entrada_nf| %>
       <tr>
-        <td><%= entrada_nf.numero %></td>
-        <td><%= entrada_nf.serie_nf %></td>
-        <td><%= entrada_nf.participante_id %></td>
+        <td><%= entrada_nf.numero %>/<%= entrada_nf.serie_nf %></td>
+        <td><%= entrada_nf.participante.nome %></td>
         <td><%= entrada_nf.data_emiss %></td>
         <td><%= entrada_nf.data_entrada %></td>
-        <td><%= entrada_nf.vlr_frete %></td>
-        <td><%= entrada_nf.vlr_encargos %></td>
-        <td><%= entrada_nf.vlr_desc %></td>
-        <td><%= entrada_nf.vlr_dif_aliq %></td>
-        <td><%= entrada_nf.tot_icms %></td>
-        <td><%= entrada_nf.tot_produtos %></td>
-        <td><%= entrada_nf.tot_nf %></td>
-        <td><%= link_to 'Show', entrada_nf %></td>
-        <td><%= link_to 'Edit', edit_entrada_nf_path(entrada_nf) %></td>
-        <td><%= link_to 'Destroy', entrada_nf, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= number_to_currency entrada_nf.vlr_frete %></td>
+        <td><%= number_to_currency entrada_nf.vlr_encargos %></td>
+        <td><%= number_to_currency entrada_nf.vlr_desc %></td>
+        <td><%= number_to_currency entrada_nf.vlr_dif_aliq %></td>
+        <td><%= number_to_currency entrada_nf.tot_icms %></td>
+        <td><%= number_to_currency entrada_nf.tot_produtos %></td>
+        <td><%= number_to_currency entrada_nf.tot_nf %></td>
+        <td><%= link_to 'Mostrar', entrada_nf,:class=>'btn btn-primary btn-xs'  %></td>
+        <td><%= link_to 'Editar', edit_entrada_nf_path(entrada_nf),:class=>'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Excluir', entrada_nf, method: :delete, data: { confirm: 'Tem Certeza?' },:class=>'btn btn-danger btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Entrada nf', new_entrada_nf_path %>
+<%= link_to 'Nova Entrada NF', new_entrada_nf_path,:class=> 'btn btn-default' %>

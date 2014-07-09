@@ -14,11 +14,11 @@
   <div class="row">
   <div class="col-md-2">
     Número<br>
-    <%= f.number_field :numero, :class => 'form-control' %>
+    <%= f.text_field :numero, :class => 'form-control',maxlength:10,:onkeypress=>'return SomenteNumero(event)' %>
   </div>
   <div class="col-md-2">
     Série<br>
-    <%= f.text_field :serie_nf, :class => 'form-control' %>
+    <%= f.text_field :serie_nf, :class => 'form-control',maxlength:5 %>
   </div>
       <% 
        @fornecedor = Participante.new

@@ -1,64 +1,77 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-default" style="width: 1000px;margin: 0 auto">
+    <div class="panel-heading">
+        <h4>Detalhe da Nota Fiscal</h4>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-2">
+                <strong>NF/Serie:</strong>
+                <%= @entrada_nf.numero %>/<%= @entrada_nf.serie_nf %>
+            </div>
+            <div class="col-md-4">
+                <strong>Participante:</strong>
+                <%= @entrada_nf.participante.nome %>
+            </div>
+            <div class="col-md-3">
+                <strong>Emiss:</strong>
+                <%= @entrada_nf.data_emiss %>
+            </div>
+            <div class="col-md-3">
+                <strong>Entrada:</strong>
+                <%= @entrada_nf.data_entrada %>
+            </div>
 
-<p>
-  <strong>Numero:</strong>
-  <%= @entrada_nf.numero %>
-</p>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <strong>Tot Prod.:</strong>
+                <%= number_to_currency @entrada_nf.tot_produtos %>
+            </div>
+            <div class="col-md-2">
+                <strong>Frete:</strong>
+                <%= number_to_currency @entrada_nf.vlr_frete %>
+            </div>
+            <div class="col-md-2">
+                <strong>Encargos:</strong>
+                <%= number_to_currency @entrada_nf.vlr_encargos %>
+            </div>
+            <div class="col-md-2">
+                <strong>Desc.:</strong>
+                <%= number_to_currency @entrada_nf.vlr_desc %>
+            </div>
+            <div class="col-md-2">
+                <strong>Dif.Aliq:</strong>
+                <%= number_to_currency @entrada_nf.vlr_dif_aliq %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <strong>ICMS:</strong>
+                <%= number_to_currency @entrada_nf.tot_icms %>
 
-<p>
-  <strong>Serie nf:</strong>
-  <%= @entrada_nf.serie_nf %>
-</p>
+            </div>
+            <div class="col-md-2">
+                <strong>Tot NF:</strong>
+                <%= number_to_currency @entrada_nf.tot_nf %>
+            </div>
+        </div>
+    </div>
+    <% if notice %>
+    <div class="alert alert-info">
+        <p id="notice">
+            <%= notice %>
+        </p>
+    </div>
+    <%end%>
 
-<p>
-  <strong>Participante:</strong>
-  <%= @entrada_nf.participante_id %>
-</p>
 
-<p>
-  <strong>Data emiss:</strong>
-  <%= @entrada_nf.data_emiss %>
-</p>
+</div>
 
-<p>
-  <strong>Data entrada:</strong>
-  <%= @entrada_nf.data_entrada %>
-</p>
-
-<p>
-  <strong>Vlr frete:</strong>
-  <%= @entrada_nf.vlr_frete %>
-</p>
-
-<p>
-  <strong>Vlr encargos:</strong>
-  <%= @entrada_nf.vlr_encargos %>
-</p>
-
-<p>
-  <strong>Vlr desc:</strong>
-  <%= @entrada_nf.vlr_desc %>
-</p>
-
-<p>
-  <strong>Vlr dif aliq:</strong>
-  <%= @entrada_nf.vlr_dif_aliq %>
-</p>
-
-<p>
-  <strong>Tot icms:</strong>
-  <%= @entrada_nf.tot_icms %>
-</p>
-
-<p>
-  <strong>Tot produtos:</strong>
-  <%= @entrada_nf.tot_produtos %>
-</p>
-
-<p>
-  <strong>Tot nf:</strong>
-  <%= @entrada_nf.tot_nf %>
-</p>
-
-<%= link_to 'Edit', edit_entrada_nf_path(@entrada_nf) %> |
-<%= link_to 'Back', entrada_nfs_path %>
+<ul class="pager">
+    <li>
+        <%= link_to 'Editar', edit_entrada_nf_path(@entrada_nf) %>
+    </li>
+    <li>
+        <%= link_to 'Voltar', entrada_nfs_path %>
+    </li>
+</ul>

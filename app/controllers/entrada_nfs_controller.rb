@@ -28,7 +28,7 @@ class EntradaNfsController < ApplicationController
 
     respond_to do |format|
       if @entrada_nf.save
-        format.html { redirect_to @entrada_nf, notice: 'Entrada nf was successfully created.' }
+        format.html { redirect_to @entrada_nf, notice: 'Entrada nf incluida com sucesso.' }
         format.json { render :show, status: :created, location: @entrada_nf }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class EntradaNfsController < ApplicationController
   def update
     respond_to do |format|
       if @entrada_nf.update(entrada_nf_params)
-        format.html { redirect_to @entrada_nf, notice: 'Entrada nf was successfully updated.' }
+        format.html { redirect_to @entrada_nf, notice: 'Entrada nf alterada com sucesso.' }
         format.json { render :show, status: :ok, location: @entrada_nf }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class EntradaNfsController < ApplicationController
   def destroy
     @entrada_nf.destroy
     respond_to do |format|
-      format.html { redirect_to entrada_nfs_url, notice: 'Entrada nf was successfully destroyed.' }
+      format.html { redirect_to entrada_nfs_url, notice: 'Entrada nf excluida com sucesso.' }
       format.json { head :no_content }
     end
   end
