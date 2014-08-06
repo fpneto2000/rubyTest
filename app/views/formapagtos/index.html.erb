@@ -13,7 +13,7 @@
       <tr>
         <td><%= formapagto.descr %></td>
         <td><%= link_to 'Mostrar', formapagto, :class=>'btn btn-primary btn-xs' %></td>
-        <td><%= link_to 'Ediatr', edit_formapagto_path(formapagto),:class=>'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Editar', edit_formapagto_path(formapagto),:class=>'btn btn-primary btn-xs' %></td>
         <td><%= link_to 'Apagar', formapagto, method: :delete, data: { confirm: 'Tem Certeza?' },:class=>'btn btn-danger btn-xs' %></td>
       </tr>
     <% end %>

@@ -29,15 +29,29 @@
                 <%= options_for_select([['Cliente', 'C'], ['Fornecedor', 'F'], ['Ambos','A']], @participante.cli_ou_for) %>
             </select>
         </div>
+        <div class="col-md-2">
+            Transportadora
+            <br>
+            <select id="participante_transportadora" name="participante[transportadora]" class="form-control">
+                <%= options_for_select([['Não', 'N'],['Sim', 'S']], @participante.transportadora) %>
+            </select>
+        </div>
+
+    </div>
+    <div class="row">
         <div class="col-md-8">
             Nome
             <br>
             <%= f.text_field :nome,:maxlength=>100,  :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()"%>
         </div>
-
+        <div class="col-md-4">
+            Nome Fantasia/Apelido
+            <br>
+            <%= f.text_field :fantasia,:maxlength=>60,  :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()"%>
+        </div>
     </div>
-
-    <div class="row" on>
+    
+    <div class="row">
         <div class="col-md-3">
             CPF/CNPJ
             <br>
@@ -49,9 +63,9 @@
             <%= f.text_field :ie,:maxlength=>20, :class => 'form-control' %>
         </div>
         <div class="col-md-6">
-             Email para NFe
+             Site
              <br>
-             <%= f.text_field :email_nfe,:maxlength=>45,:type => 'email', :class => 'form-control', :placeholder=>'Digite o email'  %>
+             <%= f.text_field :site,:maxlength=>60, :class => 'form-control', :placeholder=>'Digite o site'  %>
          </div>
     </div>
     <div class="row">
@@ -63,20 +77,57 @@
          <div class="col-md-2">
               Telefone 1
               <br>
-              <%= f.text_field :tel1, :class => 'form-control', :id=>"tel1" %>
+              <%= f.text_field :tel1, :class => 'form-control tel' %>
          </div>
          <div class="col-md-2">
               Telefone 2
               <br>
-              <%= f.text_field :tel2, :class => 'form-control', :id=>"tel2" %>
+              <%= f.text_field :tel2, :class => 'form-control tel'%>
          </div>
          <div class="col-md-2">
               Telefone 3
               <br>
-              <%= f.text_field :tel3, :class => 'form-control',:id=>"tel3" %>
+              <%= f.text_field :tel3, :class => 'form-control tel' %>
          </div>
     </div>
+    <div class="row">
+        <div class="col-md-2">
+            Optante Simples
+            <br>
+            <select id="participante_optante_simples" name="participante[optante_simples]" class="form-control">
+                <%= options_for_select([['Não', 'N'],['Sim', 'S']], @participante.optante_simples) %>
+            </select>
+        </div>
+         <div class="col-md-2">
+            Relação desde<br>
+            <%= f.text_field :data_relacao, :class => 'form-control',:id=>"datepicker1" %>
+         </div>
+        <div class="col-md-2">
+            Inativo
+            <br>
+            <select id="participante_inativo" name="participante[inativo]" class="form-control">
+                <%= options_for_select([['Não', 'N'],['Sim', 'S']], @participante.inativo) %>
+            </select>
+        </div>
+        <div class="col-md-6">
+              Indicado Por
+              <br>
+              <%= f.text_field :indicado_por,:maxlength=>40, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()"  %>
+         </div>
 
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+              Considerações sobre a relação
+              <br>
+              <%= f.text_area :obs_relacoes,:maxlength=>150, :type => 'text', :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()"  %>
+         </div>
+         <div class="col-md-6">
+              Observações
+              <br>
+              <%= f.text_area :observacao,:maxlength=>150, :type => 'text', :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()"  %>
+         </div>
+    </div>
     <br>
     <div id="accordion" class="panel panel-info">
         <div class="panel-heading">Endereço</div>
@@ -86,20 +137,27 @@
                 <div class="col-md-12">
                     Logradouro
                     <br>
-                    <%= f.text_field :ender,:maxlength=>100, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()"%>
+                    <%= f.text_field :ender,:maxlength=>100, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",:id=>"ender" %>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-4">
+
+                <div class="col-md-2">
                     Número
                     <br>
-                    <%= f.text_field :numero,:maxlength=>10, :class => 'form-control' %>
+                    <%= f.text_field :numero,:maxlength=>10, :class => 'form-control',id:"numero" %>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-4">
+                    Complemento
+                    <br>
+                    <%= f.text_field :complemento,:maxlength=>60, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"complemento"  %>
+                </div>
+
+                <div class="col-md-6">
                     Bairro
                     <br>
-                    <%= f.text_field :bairro,:maxlength=>60, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
+                    <%= f.text_field :bairro,:maxlength=>60, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"bairro" %>
                 </div>
             </div>
 
@@ -107,12 +165,12 @@
                 <div class="col-md-7">
                     Cidade
                     <br>
-                    <%= f.text_field :cidade,:maxlength=>100, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
+                    <%= f.text_field :cidade,:maxlength=>100, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"cidade" %>
                 </div>
                 <div class="col-md-2">
                     UF
                     <br>
-                    <%= f.text_field :uf,:maxlength=>2, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
+                    <%= f.text_field :uf,:maxlength=>2, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"uf" %>
                 </div>
                 <div class="col-md-3">
                     CEP
@@ -120,28 +178,46 @@
                     <%= f.text_field :cep, :class => 'form-control', :id=>"cep" %>
                 </div>
             </div>
+            <div class="row">
+               <div class="col-md-12">
+                  Observação
+                  <br>
+                  <%= f.text_area :obs_ender,:maxlength=>150, :type => 'text', :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"obs_ender"  %>
+               </div>
+           </div>
+
         </div>
         <div class="panel-heading">Endereço de Cobrança</div>
         <div class="panel-body">
 
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-11">
                     Logradouro
                     <br>
-                    <%= f.text_field :ender_cob,:maxlength=>100, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
+                    <%= f.text_field :ender_cob,:maxlength=>100, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",:id=>"ender_cob" %>
+                </div>
+                <div class="col-md-1">
+                    <br>
+                    <button class="btn btn-default" type="button" onclick="copiaEnderParaCob()"><span class="glyphicon glyphicon-save"></button>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-2">
                     Número
                     <br>
-                    <%= f.text_field :numero_cob,:maxlength=>10, :class => 'form-control' %>
+                    <%= f.text_field :numero_cob,:maxlength=>10, :class => 'form-control',id:"numero_cob" %>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-4">
+                    Complemento
+                    <br>
+                    <%= f.text_field :complemento_cob,:maxlength=>60, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"complemento_cob"  %>
+                </div>
+
+                <div class="col-md-6">
                     Bairro
                     <br>
-                    <%= f.text_field :bairro_cob,:maxlength=>60, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
+                    <%= f.text_field :bairro_cob,:maxlength=>60, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"bairro_cob" %>
                 </div>
             </div>
 
@@ -149,12 +225,12 @@
                 <div class="col-md-7">
                     Cidade
                     <br>
-                    <%= f.text_field :cidade_cob,:maxlength=>100, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
+                    <%= f.text_field :cidade_cob,:maxlength=>100, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"cidade_cob" %>
                 </div>
                 <div class="col-md-2">
                     UF
                     <br>
-                    <%= f.text_field :uf_cob,:maxlength=>2, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
+                    <%= f.text_field :uf_cob,:maxlength=>2, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"uf_cob" %>
                 </div>
                 <div class="col-md-3">
                     CEP
@@ -162,27 +238,46 @@
                     <%= f.text_field :cep_cob, :class => 'form-control', :id=>"cep_cob" %>
                 </div>
             </div>
+            <div class="row">
+               <div class="col-md-12">
+                  Observação
+                  <br>
+                  <%= f.text_area :obs_ender_cob,:maxlength=>150, :type => 'text', :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"obs_ender_cob"  %>
+               </div>
+           </div>
+            
         </div>
         <div class="panel-heading">Endereço de Entrega</div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-11">
                     Endereço Entrega
                     <br>
-                    <%= f.text_field :ender_entrega,:maxlength=>100, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
+                    <%= f.text_field :ender_entrega,:maxlength=>100, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"ender_entrega" %>
                 </div>
+                <div class="col-md-1">
+                    <br>
+                    <button class="btn btn-default" type="button" onclick="copiaEnderParaEntrega()"><span class="glyphicon glyphicon-save"></button>
+                </div>
+        
             </div>
 
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-2">
                     Número
                     <br>
-                    <%= f.text_field :numero_entrega,:maxlength=>10, :class => 'form-control' %>
+                    <%= f.text_field :numero_entrega,:maxlength=>10, :class => 'form-control',id:"numero_entrega" %>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-4">
+                    Complemento
+                    <br>
+                    <%= f.text_field :complemento_entrega,:maxlength=>60, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"complemento_entrega"  %>
+                </div>
+
+                <div class="col-md-6">
                     Bairro
                     <br>
-                    <%= f.text_field :bairro_entrega,:maxlength=>60, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
+                    <%= f.text_field :bairro_entrega,:maxlength=>60, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"bairro_entrega" %>
                 </div>
             </div>
 
@@ -190,12 +285,12 @@
                 <div class="col-md-7">
                     Cidade
                     <br>
-                    <%= f.text_field :cidade_entrega,:maxlength=>100, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
+                    <%= f.text_field :cidade_entrega,:maxlength=>100, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"cidade_entrega" %>
                 </div>
                 <div class="col-md-2">
                     UF
                     <br>
-                    <%= f.text_field :uf_entrega,:maxlength=>2, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
+                    <%= f.text_field :uf_entrega,:maxlength=>2, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"uf_entrega" %>
                 </div>
                 <div class="col-md-3">
                     CEP
@@ -203,6 +298,14 @@
                     <%= f.text_field :cep_entrega, :class => 'form-control', :id=>"cep_ent" %>
                 </div>
             </div>
+            <div class="row">
+               <div class="col-md-12">
+                  Observação
+                  <br>
+                  <%= f.text_area :obs_ender_entrega,:maxlength=>150, :type => 'text', :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"obs_ender_entrega"  %>
+               </div>
+           </div>
+            
         </div>
     </div>
 </div>
@@ -219,7 +322,29 @@
 			$("#cnpj").mask("999.999.999-99");
 		};
 	};
+	
+    function copiaEnderParaCob(){
+       document.getElementById('ender_cob').value = document.getElementById('ender').value;   
+       document.getElementById('numero_cob').value = document.getElementById('numero').value;   
+       document.getElementById('complemento_cob').value = document.getElementById('complemento').value;   
+       document.getElementById('bairro_cob').value = document.getElementById('bairro').value;   
+       document.getElementById('cidade_cob').value = document.getElementById('cidade').value;   
+       document.getElementById('uf_cob').value = document.getElementById('uf').value;   
+       document.getElementById('cep_cob').value = document.getElementById('cep').value;   
+       document.getElementById('obs_ender_cob').value = document.getElementById('obs_ender').value;   
 
+    };
+    function copiaEnderParaEntrega(){
+       document.getElementById('ender_entrega').value = document.getElementById('ender').value;   
+       document.getElementById('numero_entrega').value = document.getElementById('numero').value;   
+       document.getElementById('complemento_entrega').value = document.getElementById('complemento').value;   
+       document.getElementById('bairro_entrega').value = document.getElementById('bairro').value;   
+       document.getElementById('cidade_entrega').value = document.getElementById('cidade').value;   
+       document.getElementById('uf_entrega').value = document.getElementById('uf').value;   
+       document.getElementById('cep_ent').value = document.getElementById('cep').value;   
+       document.getElementById('obs_ender_entrega').value = document.getElementById('obs_ender').value;   
+    };
+    
 	jQuery(function($) {
 		var tipo = $("#participante_tipo").val();
 		if (tipo == "J") {
@@ -228,16 +353,29 @@
 			mascara = "999.999.999-99";
 		};
 		$("#date").mask("99/99/9999");
-		$("#tel1").mask("(99) ?9999-9999");
-		$("#tel2").mask("(99) ?9999-9999");
-		$("#tel3").mask("(99) ?9999-9999");
+		$('.tel').focusout(function(){
+           var phone, element;
+           element = $(this);
+           element.unmask();
+           phone = element.val().replace(/\D/g, '');
+           if(phone.length > 10) {
+              element.mask("(99) 99999-999?9");
+           } else {
+              element.mask("(99) 9999-9999?9");
+           }
+        }).trigger('focusout');
+        
 		$("#cnpj").mask(mascara);
 		$("#cep").mask("99999-999");
 		$("#cep_cob").mask("99999-999");
 		$("#cep_ent").mask("99999-999");
 
 	});
-
+    $(function() {
+       $( "#datepicker1" ).datepicker();
+       $( "#datepicker2" ).datepicker();
+    });
+    
 	$(function() {
 
 		var icons = {
@@ -249,4 +387,5 @@
 			icons : icons,
 		});
 	}); 
+	
 </script>

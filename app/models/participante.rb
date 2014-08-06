@@ -4,27 +4,36 @@ class Participante < ActiveRecord::Base
   
   validates :nome, :presence => true, :uniqueness => false, length: { maximum: 100 }
   validates :cnpj, :presence => true, :uniqueness => true, length: { maximum: 20 }
+  validates :fantasia, length: { maximum: 60 }
   validates :ie, :presence => true, length: { maximum: 20 }
+  validates :observacao, length: { maximum: 150 }
+  
   validates :ender, length: { maximum: 100 }
   validates :numero, length: { maximum: 10 }
+  validates :complemento, length: { maximum: 60 }
   validates :bairro, length: { maximum: 60 }
   validates :cidade, length: { maximum: 100 }
   validates :uf, length: { maximum: 2 }
   validates :cep, length: { maximum: 9 }
+  validates :obs_ender, length: { maximum: 150 }
 
   validates :ender_cob, length: { maximum: 100 }
   validates :numero_cob, length: { maximum: 10 }
+  validates :complemento_cob, length: { maximum: 60 }
   validates :bairro_cob, length: { maximum: 60 }
   validates :cidade_cob, length: { maximum: 100 }
   validates :uf_cob, length: { maximum: 2 }
   validates :cep_cob, length: { maximum: 9 }
+  validates :obs_ender_cob, length: { maximum: 150 }
 
   validates :ender_entrega, length: { maximum: 100 }
   validates :numero_entrega, length: { maximum: 10 }
+  validates :complemento_entrega, length: { maximum: 60 }
   validates :bairro_entrega, length: { maximum: 60 }
   validates :cidade_entrega, length: { maximum: 100 }
   validates :uf_entrega, length: { maximum: 2 }
   validates :cep_entrega, length: { maximum: 9 }
+  validates :obs_ender_entrega, length: { maximum: 150 }
 
   def descr_caracteristica
        if self.cli_ou_for == 'C'
@@ -43,6 +52,31 @@ class Participante < ActiveRecord::Base
           'Pessoa Juridica'
        end
   end
+  
+  def descr_transportadora
+       if self.transportadora == 'S'
+          'Sim'
+       else
+          'Nao'
+       end
+  end
+  
+  def descr_optante_simples
+       if self.optante_simples == 'S'
+          'Sim'
+       else
+          'Nao'
+       end
+  end
+  
+  def descr_inativo
+       if self.inativo == 'S'
+          'Sim'
+       else
+          'Nao'
+       end
+  end
+
   
   def listar(roles,options={})
         container   = options[:container] || []

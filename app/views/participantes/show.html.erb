@@ -3,24 +3,40 @@
         <h4>Detalhe do Participante</h4>
     </div>
     <div class="panel-body">
-
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <h4><%= @participante.nome %></h4>
             </div>
+        </div>
 
-            <div class="col-md-2">
+        <div class="row">
+            <div class="col-md-3">
                 <strong>Tipo:</strong>
                 <br>
                 <%= @participante.descr_tipo %>
             </div>
-            <div classa="col-md-2">
+            
+            <div class="col-md-3">
                 <strong>Característica:</strong>
                 <br>
                 <%= @participante.descr_caracteristica %>
             </div>
+            
+            <div class="col-md-3">
+                <strong>Transportadora:</strong>
+                <br>
+                <%= @participante.descr_transportadora  %>
+            </div>
+            
         </div>
-
+        <div class="row">
+            <div class="col-md-12">
+                <strong>Nome Fantasia/Apelido:</strong> 
+                <br>
+                <%= @participante.fantasia %>
+            </div>
+        </div>
+       
         <div class="row">
             <div class="col-md-3">
                 <strong>CPF/CNPJ:</strong>
@@ -33,10 +49,11 @@
                 <%= @participante.ie %>
             </div>
             <div class="col-md-6">
-                <strong>Email NFe:</strong>
+                <strong>Site:</strong>
                 <br>
-                <%= @participante.email_nfe %>
+                <%= @participante.site %>
             </div>
+
         </div>
 
         <div class="row">
@@ -63,6 +80,42 @@
                 <%= @participante.tel3 %>
             </div>
         </div>
+        <div class="row">
+           <div class="col-md-2">
+              <strong>Optante Simples:</strong>
+              <br>
+              <%=  @participante.descr_optante_simples %>
+           </div>
+           <div class="col-md-2">
+               <strong>Relação desde:</strong>
+               <br>
+               <%= @participante.data_relacao %>
+           </div>
+           <div class="col-md-2">
+               <strong>Inativo:</strong>
+               <br>
+                <%= @participante.descr_inativo %>
+           </div>
+           <div class="col-md-6">
+              <strong>Indicado Por:</strong>
+              <br>
+              <%= @participante.indicado_por %>
+           </div>
+
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+              <strong>Considerações sobre a relação:</strong>
+              <br>
+              <%= @participante.obs_relacoes %>
+         </div>
+         <div class="col-md-6">
+              <strong>Observações:</strong>
+              <br>
+              <%= @participante.observacao  %>
+         </div>
+    </div>
+        
         <br>
         <div id="accordion" class="panel panel-info">
             <div class="panel-heading">
@@ -78,13 +131,18 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                         <strong>Número:</strong>
                         <br>
                         <%= @participante.numero %>
                     </div>
+                   <div class="col-md-4">
+                        <strong>Complemento:</strong>
+                        <br>
+                        <%= @participante.complemento %>
+                    </div>
 
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <strong>Bairro:</strong>
                         <br>
                         <%= @participante.bairro %>
@@ -109,6 +167,14 @@
                         <%= @participante.cep %>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>Observação:</strong>
+                        <br>
+                        <%= @participante.obs_ender %>
+                    </div>
+                </div>
+                
             </div>
             <div class="panel-heading">
                 Endereço de Cobrança
@@ -123,13 +189,18 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                         <strong>Número:</strong>
                         <br>
                         <%= @participante.numero_cob %>
                     </div>
+                   <div class="col-md-4">
+                        <strong>Complemento:</strong>
+                        <br>
+                        <%= @participante.complemento_cob %>
+                    </div>
 
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <strong>Bairro:</strong>
                         <br>
                         <%= @participante.bairro_cob %>
@@ -154,6 +225,14 @@
                         <%= @participante.cep_cob %>
                     </div>
                 </div>
+                 <div class="row">
+                    <div class="col-md-12">
+                        <strong>Observação:</strong>
+                        <br>
+                        <%= @participante.obs_ender_cob %>
+                    </div>
+                </div>
+
             </div>
             <div class="panel-heading">
                 Endereço de Entrega
@@ -168,13 +247,18 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                         <strong>Número:</strong>
                         <br>
                         <%= @participante.numero_entrega %>
                     </div>
+                   <div class="col-md-4">
+                        <strong>Complemento:</strong>
+                        <br>
+                        <%= @participante.complemento_entrega %>
+                    </div>
 
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <strong>Bairro:</strong>
                         <br>
                         <%= @participante.bairro_entrega %>
@@ -199,6 +283,14 @@
                         <%= @participante.cep_entrega %>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>Observação:</strong>
+                        <br>
+                        <%= @participante.obs_ender_entrega %>
+                    </div>
+                </div>
+                
             </div>
         </div>
 
@@ -220,6 +312,7 @@
         <%= link_to 'Voltar', participantes_path %>
     </li>
 </ul>
+
 <script>
 	$(function() {
 
