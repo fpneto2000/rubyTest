@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :contatos
+
+  resources :setors
+
   resources :entrada_nfs
 
   resources :serienums

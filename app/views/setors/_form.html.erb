@@ -1,0 +1,22 @@
+<%= form_for(@setor) do |f| %>
+  <% if @setor.errors.any? %>
+    <div class="alert alert-danger">
+      <h5><%= pluralize(@setor.errors.count, "error") %> Dados inválidos para gravação:</h5>
+
+      <ul>
+      <% @setor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="form-group">
+  <div class="field">
+    Descrição<br>
+    <%= f.text_field :descr,:maxlength=>60,:class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()"  %>
+  </div>
+</div>
+  <div class="actions">
+    <%= f.submit 'Gravar Setor', :class => 'btn btn-default' %>
+  </div>
+<% end %>

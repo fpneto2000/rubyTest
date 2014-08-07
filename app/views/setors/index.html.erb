@@ -1,0 +1,25 @@
+<h4>Cadastro de Setores</h4>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Descrição</th>
+      <th style="width: 10%" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @setors.each do |setor| %>
+      <tr>
+        <td><%= setor.descr %></td>
+        <td><%= link_to 'Mostrar', setor, :class=>'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Editar', edit_setor_path(setor),:class=>'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Apagar', setor, method: :delete, data: { confirm: 'Tem Certeza?' },:class=>'btn btn-danger btn-xs' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Setor', new_setor_path, :class=> 'btn btn-default' %>

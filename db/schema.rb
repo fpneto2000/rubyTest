@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140805225430) do
+ActiveRecord::Schema.define(version: 20140807002125) do
+
+  create_table "contatos", force: true do |t|
+    t.string   "nome",            limit: 60
+    t.string   "email",           limit: 60
+    t.string   "tel",             limit: 20
+    t.integer  "participante_id"
+    t.integer  "setor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "departamentos", force: true do |t|
     t.string   "descr"
@@ -172,6 +182,12 @@ ActiveRecord::Schema.define(version: 20140805225430) do
     t.integer  "fornecedor_id"
     t.string   "codigo_forn"
     t.integer  "fabricante_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "setors", force: true do |t|
+    t.string   "descr"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

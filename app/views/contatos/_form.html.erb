@@ -1,0 +1,69 @@
+<%= form_for(@contato) do |f| %>
+  <% if @contato.errors.any? %>
+   <div class="alert alert-danger">
+      <h5><%= pluralize(@contato.errors.count, "error") %> Dados invalidos para gravação:</h5>
+
+      <ul>
+      <% @contato.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="form-group">
+    <div class="row">
+       <div class="col-md-11">   
+         <%= f.text_field :participante_id, :type=>'hidden' %> 
+         <h3><span class="label label-primary"><%= @contato.participante.nome  %></span></h3>
+       </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+          Nome<br>
+          <%= f.text_field :nome,:maxlength=>60,  :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
+        </div>
+        <div class="col-md-6">
+          eMail<br>
+          <%= f.text_field :email,:maxlength=>45, :type => 'email', :class => 'form-control', :placeholder=>'Digite o email'  %>
+        </div>
+    </div>
+      <% 
+       @setor = Setor.new
+       @setors = Setor.all
+    %>
+
+    <div class="row">
+        <div class="col-md-2">
+           Telefone<br>
+           <%= f.text_field :tel, :class => 'form-control tel' %>
+        </div>
+        <div class="col-md-6">
+           Setor<br> 
+           <select id="setor_id" name="contato[setor_id]" class="form-control">
+             <option value="0">Escolha um setor</option>
+             <%= options_for_select(@setor.listar(@setors,{:container=>@arvore}), @contato.setor_id) %> 
+           </select>
+        </div>
+   </div>
+</div>
+<div class="actions">
+    <%= f.submit 'Gravar Contato', :class => 'btn btn-default' %>
+</div>
+<% end %>
+<script>
+    
+        jQuery(function($) {
+        $('.tel').focusout(function(){
+           var phone, element;
+           element = $(this);
+           element.unmask();
+           phone = element.val().replace(/\D/g, '');
+           if(phone.length > 10) {
+              element.mask("(99) 99999-999?9");
+           } else {
+              element.mask("(99) 9999-9999?9");
+           }
+        }).trigger('focusout');
+       });
+
+</script>
