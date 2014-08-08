@@ -1,0 +1,29 @@
+<div class="panel panel-default" style="width: 500px;margin: 0 auto">
+    <div class="panel-heading">
+        <h4>Detalhe do Tipo de Recebimento</h4>
+    </div>
+    <div class="panel-body">
+
+        <p>
+            <strong>Descr:</strong>
+            <%= @formarec.descr %>
+        </p>
+        <% if notice %>
+        <div class="alert alert-info">
+            <p id="notice">
+                <%= notice %>
+            </p>
+        </div>
+        <%end%>
+
+    </div>
+
+</div>
+<ul class="pager">
+    <li>
+        <%= link_to 'Editar', edit_formarec_path(@formarec) %>
+    </li>
+    <li>
+        <%= link_to 'Voltar', formarecs_path %>
+    </li>
+</ul>

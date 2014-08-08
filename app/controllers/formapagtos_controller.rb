@@ -69,6 +69,7 @@ class FormapagtosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def formapagto_params
-      params.require(:formapagto).permit(:descr)
+      params.require(:formapagto).permit(:descr,:recebimento,:pagamento,:pagto_nfe,:qt_parcelas,:dias_apos_prim_parc,
+      :dias_entre_parc,:prorrogar_para,:dia_fixo,:dias_uteis_corridos,:receb_parc_id,:receb_entrada_id)
     end
 end

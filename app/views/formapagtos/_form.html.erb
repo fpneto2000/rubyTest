@@ -1,23 +1,112 @@
 <%= form_for(@formapagto) do |f| %>
-  <% if @formapagto.errors.any? %>
-    <div class="alert alert-danger">
-      <h5><%= pluralize(@formapagto.errors.count, "error") %> Dados inválidos para gravação:</h5>
+<% if @formapagto.errors.any? %>
+<div class="alert alert-danger">
+    <h5><%= pluralize(@formapagto.errors.count, "error") %> Dados inválidos para gravação:</h5>
 
-      <ul>
-      <% @formapagto.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-<div class="form-group">
-  <div class="field">
-    Descrição<br>
-    <%= f.text_field :descr,:class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
-  </div>
+    <ul>
+        <% @formapagto.errors.full_messages.each do |message| %>
+        <li>
+            <%= message %>
+        </li>
+        <% end %>
+    </ul>
 </div>
-  <div class="actions">
-    <%= f.submit 'Gravar forma de Pagto', :class => 'btn btn-default' %>
+<% end %>
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-2">
+            Descrição
+            <br>
+            <%= f.text_field :descr,:class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            Recebimento
+            <br>
+            <select id="formapagto_recebimento" name="formapagto[recebimento]" class="form-control"  >
+                <%= options_for_select([['Não', 'N'], ['Sim', 'S']], @formapagto.recebimento) %>
+            </select>
+        </div>
+        <div class="col-md-2">
+            Pagamento
+            <br>
+            <select id="formapagto_pagamento" name="formapagto[pagamento]" class="form-control"  >
+                <%= options_for_select([['Não', 'N'], ['Sim', 'S']], @formapagto.pagamento) %>
+            </select>
+        </div>
+        <div class="col-md-2">
+            Indicador Pagto NFe
+            <br>
+            <select id="formapagto_pagto_nfe" name="formapagto[pagto_nfe]" class="form-control">
+                <%= options_for_select([['À Vista', '0'],['À Prazo', '1'],['Outros', '2']], @formapagto.pagto_nfe) %>
+            </select>
+        </div>
+        <div class="col-md-2">
+            Parcelas s/Entrada
+            <br>
+            <%= f.text_field :qt_parcelas,:class => 'form-control',maxlength:3,:onkeypress=>'return SomenteNumero(event)' %>
+        </div>
+        <div class="col-md-2">
+            Dias para a entrada
+            <br>
+            <%= f.text_field :dias_apos_prim_parc,:class => 'form-control',maxlength:2,:onkeypress=>'return SomenteNumero(event)' %>
+        </div>
+        <div class="col-md-2">
+            Dias entre parcelas
+            <br>
+            <%= f.text_field :dias_entre_parc,:class => 'form-control',maxlength:2,:onkeypress=>'return SomenteNumero(event)' %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            Prorrogar para
+            <br>
+            <select id="formapagto_prorrogar_para" name="formapagto[prorrogar_para]" class="form-control"  >
+                <%= options_for_select([['Seg', '2'], ['Ter', '3'], ['Ter', '4'], ['Ter', '5'], ['Ter', '6']], @formapagto.prorrogar_para) %>
+            </select>
+        </div>
+        <div class="col-md-2">
+            Dia Fixo
+            <br>
+            <%= f.text_field :dia_fixo,:class => 'form-control',maxlength:2,:onkeypress=>'return SomenteNumero(event)' %>
+        </div>
+        <div class="col-md-2">
+            Intervalo de dias
+            <br>
+            <select id="formapagto_dias_uteis_corridos" name="formapagto[dias_uteis_corridos]" class="form-control">
+                <%= options_for_select([['Dias Úteis', 'U'],['Dias Corridos', 'C']], @formapagto.dias_uteis_corridos) %>
+            </select>
+        </div>
+    </div>
+    
+      <% 
+       @TipoParc = Formarec.new
+       @TipoParcs = Formarec.all
+       @TipoEntrada = Formarec.new
+       @TipoEntradas = Formarec.all
+    %>
+     
+  <div class="row">
+       <div class="col-md-6">
+       Tipo de Recebimento das parcelas<br>
+           <select id="receb_parc_id" name="formapagto[receb_parc_id]" class="form-control">
+             <option value="0">Escolha um tipo de recebimento</option>
+             <%= options_for_select(@TipoParc.listar(@TipoParcs,{:container=>@arvore}), @formapagto.receb_parc_id) %> 
+           </select>
+       </div>
+       <div class="col-md-6">
+       Tipo de recebimento da Entrada<br>
+           <select id="receb_entrada_id" name="formapagto[receb_entrada_id]" class="form-control">
+             <option value="0">Escolha um tipo de recebimento</option>
+             <%= options_for_select(@TipoEntrada.listar(@TipoEntradas,{:contaoiner=>@arvore}), @formapagto.receb_entrada_id) %> 
+           </select>
+       </div>
   </div>
+
+</div>
+<div class="actions">
+    <%= f.submit 'Gravar forma de Pagto', :class => 'btn btn-default' %>
+</div>
 <% end %>

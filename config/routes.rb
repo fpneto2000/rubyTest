@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :formarecs
+
   resources :contatos
 
   resources :setors

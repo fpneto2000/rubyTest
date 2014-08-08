@@ -1,18 +1,65 @@
 <div class="panel panel-default" style="width: 500px;margin: 0 auto">
-  <div class="panel-heading"><h4>Detalhe da Forma de Pagamento</h4></div>
-  <div class="panel-body">	
-   <p>
-     <strong>Descrição:</strong>
-     <%= @formapagto.descr %>
-   </p>
-   <% if notice %>
-     <div class="alert alert-info"><p id="notice"><%= notice %></p></div> 
-   <%end%>
-   
-  </div>
-  
+    <div class="panel-heading">
+        <h4>Detalhe da Forma de Pagamento</h4>
+    </div>
+    <div class="panel-body">
+        <p>
+            <strong>Descrição:</strong>
+            <%= @formapagto.descr %>
+        </p>
+        <p>
+            <strong>Recebimento:</strong>
+            <%= @formapagto.recebimento %>
+        </p>
+        <p>
+            <strong>Pagamento:</strong>
+            <%= @formapagto.pagamento %>
+        </p>
+        <p>
+            <strong>Indicador Pagto NFe:</strong>
+            <%= @formapagto.descr_pagto_nfe %>
+        </p>
+        <p>
+            <strong>Parcelas s/Entrada:</strong>
+            <%= @formapagto.qt_parcelas %>
+        </p>
+        <p>
+            <strong>Dias para a entrada:</strong>
+            <%= @formapagto.dias_apos_prim_parc%>
+        </p>
+        <p>
+            <strong>Dias entre parcelas:</strong>
+            <%= @formapagto.dias_entre_parc %>
+        </p>
+        <p>
+            <strong>Prorrogar para:</strong>
+            <%= @formapagto.descr_prorrogar_para %>
+        </p>
+        <p>
+            <strong>Dia Fixo:</strong>
+            <%= @formapagto.dia_fixo %>
+        </p>
+        <p>
+            <strong>Intervalo de dias:</strong>
+            <%= @formapagto.descr_dias_uteis_corridos %>
+        </p>
+
+        <% if notice %>
+        <div class="alert alert-info">
+            <p id="notice">
+                <%= notice %>
+            </p>
+        </div>
+        <%end%>
+
+    </div>
+
 </div>
 <ul class="pager">
-   <li><%= link_to 'Editar', edit_formapagto_path(@formapagto) %></li>
-   <li><%= link_to 'Voltar', formapagtos_path %></li>
+    <li>
+        <%= link_to 'Editar', edit_formapagto_path(@formapagto) %>
+    </li>
+    <li>
+        <%= link_to 'Voltar', formapagtos_path %>
+    </li>
 </ul>

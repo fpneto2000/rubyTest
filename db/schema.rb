@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807002125) do
+ActiveRecord::Schema.define(version: 20140808145207) do
 
   create_table "contatos", force: true do |t|
     t.string   "nome",            limit: 60
@@ -66,7 +66,24 @@ ActiveRecord::Schema.define(version: 20140807002125) do
   end
 
   create_table "formapagtos", force: true do |t|
-    t.string   "descr",      limit: 45
+    t.string   "descr",               limit: 45
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "recebimento",         limit: 1
+    t.string   "pagamento",           limit: 1
+    t.integer  "pagto_nfe"
+    t.integer  "qt_parcelas"
+    t.integer  "dias_apos_prim_parc"
+    t.integer  "dias_entre_parc"
+    t.string   "prorrogar_para",      limit: 1
+    t.integer  "dia_fixo"
+    t.string   "dias_uteis_corridos", limit: 1
+    t.integer  "receb_parc_id"
+    t.integer  "receb_entrada_id"
+  end
+
+  create_table "formarecs", force: true do |t|
+    t.string   "descr"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

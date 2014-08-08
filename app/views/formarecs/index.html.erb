@@ -1,0 +1,25 @@
+<h4>Cadastro de Tipo de Recebimento</h4>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Descrição</th>
+      <th style="width: 10%" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @formarecs.each do |formarec| %>
+      <tr>
+        <td><%= formarec.descr %></td>
+        <td><%= link_to 'Mostrar', formarec, :class=>'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Editar', edit_formarec_path(formarec),:class=>'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Apagar', formarec, method: :delete, data: { confirm: 'Tem Certeza?' },:class=>'btn btn-danger btn-xs' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Tipo de Recebimento', new_formarec_path, :class=> 'btn btn-default' %>

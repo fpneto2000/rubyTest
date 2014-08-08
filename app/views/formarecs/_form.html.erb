@@ -1,0 +1,28 @@
+<%= form_for(@formarec) do |f| %>
+<% if @formarec.errors.any? %>
+<div class="alert alert-danger">
+    <h5><%= pluralize(@formarec.errors.count, "error") %> prohibited this formarec from being saved:</h5>
+
+    <ul>
+        <% @formarec.errors.full_messages.each do |message| %>
+        <li>
+            <%= message %>
+        </li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-12">
+            Descrição
+            <br>
+            <%= f.text_field :descr,:class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()" %>
+        </div>
+    </div>
+</div>
+<div class="actions">
+    <%= f.submit 'Gravar tipo de Recebimento', :class => 'btn btn-default' %>
+</div>
+<% end %>
