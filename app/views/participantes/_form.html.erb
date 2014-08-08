@@ -133,7 +133,7 @@
             <table class="table table-bordered table-condensed table_serie">
                 <thead>
                     <th>Nome</th>
-                    <th>Telefone.</th>
+                    <th>Telefone</th>
                     <th>eMail</th>
                     <th>Setor</th>
                     <th style="width:auto" colspan="1"></th>
@@ -163,7 +163,12 @@
         <div class="panel-body">
 
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-2">
+                    CEP
+                    <br>
+                    <%= f.text_field :cep, :class => 'form-control', :id=>"cep",:onblur=>"consultacep(this.value)"   %>
+                </div>
+                <div class="col-md-10">
                     Logradouro
                     <br>
                     <%= f.text_field :ender,:maxlength=>100, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",:id=>"ender" %>
@@ -191,7 +196,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-10">
                     Cidade
                     <br>
                     <%= f.text_field :cidade,:maxlength=>100, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"cidade" %>
@@ -200,11 +205,6 @@
                     UF
                     <br>
                     <%= f.text_field :uf,:maxlength=>2, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"uf" %>
-                </div>
-                <div class="col-md-3">
-                    CEP
-                    <br>
-                    <%= f.text_field :cep, :class => 'form-control', :id=>"cep" %>
                 </div>
             </div>
             <div class="row">
@@ -220,7 +220,13 @@
         <div class="panel-body">
 
             <div class="row">
-                <div class="col-md-11">
+                <div class="col-md-2">
+                    CEP
+                    <br>
+                    <%= f.text_field :cep_cob, :class => 'form-control', :id=>"cep_cob" %>
+                </div>
+ 
+                <div class="col-md-9">
                     Logradouro
                     <br>
                     <%= f.text_field :ender_cob,:maxlength=>100, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",:id=>"ender_cob" %>
@@ -251,7 +257,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-10">
                     Cidade
                     <br>
                     <%= f.text_field :cidade_cob,:maxlength=>100, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"cidade_cob" %>
@@ -260,11 +266,6 @@
                     UF
                     <br>
                     <%= f.text_field :uf_cob,:maxlength=>2, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"uf_cob" %>
-                </div>
-                <div class="col-md-3">
-                    CEP
-                    <br>
-                    <%= f.text_field :cep_cob, :class => 'form-control', :id=>"cep_cob" %>
                 </div>
             </div>
             <div class="row">
@@ -279,7 +280,13 @@
         <div class="panel-heading">Endereço de Entrega</div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-11">
+                <div class="col-md-2">
+                    CEP
+                    <br>
+                    <%= f.text_field :cep_entrega, :class => 'form-control', :id=>"cep_ent" %>
+                </div>
+                
+                <div class="col-md-9">
                     Endereço Entrega
                     <br>
                     <%= f.text_field :ender_entrega,:maxlength=>100, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"ender_entrega" %>
@@ -311,7 +318,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-10">
                     Cidade
                     <br>
                     <%= f.text_field :cidade_entrega,:maxlength=>100, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"cidade_entrega" %>
@@ -320,11 +327,6 @@
                     UF
                     <br>
                     <%= f.text_field :uf_entrega,:maxlength=>2, :class => 'form-control',:style=>"text-transform:uppercase",:onblur=>"this.value=this.value.toUpperCase()",id:"uf_entrega" %>
-                </div>
-                <div class="col-md-3">
-                    CEP
-                    <br>
-                    <%= f.text_field :cep_entrega, :class => 'form-control', :id=>"cep_ent" %>
                 </div>
             </div>
             <div class="row">
@@ -418,3 +420,25 @@
 	}); 
 	
 </script>
+
+<script>
+    function consultacep(cep){
+      cep = cep.replace(/\D/g,"")
+      url="http://cep.correiocontrol.com.br/"+cep+".js"
+      s=document.createElement('script')
+      s.setAttribute('charset','utf-8')
+      s.src=url
+      document.querySelector('head').appendChild(s)
+    };
+ 
+    function correiocontrolcep(valor){
+      if (valor.erro) {
+        alert('Cep não encontrado');       
+        return;
+      };
+      document.getElementById('ender').value=valor.logradouro
+      document.getElementById('bairro').value=valor.bairro
+      document.getElementById('cidade').value=valor.localidade
+      document.getElementById('uf').value=valor.uf
+    };
+    </script>

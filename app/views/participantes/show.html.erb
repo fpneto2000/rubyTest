@@ -57,11 +57,6 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6">
-                <strong>Email contato:</strong>
-                <br>
-                <%= @participante.email_contato %>
-            </div>
             <div class="col-md-2">
                 <strong>Telefone 1:</strong>
                 <br>
@@ -115,8 +110,36 @@
               <%= @participante.observacao  %>
          </div>
     </div>
-        
+    
+    <% unless @participante.id.nil? %>
         <br>
+        <div class="panel panel-default">
+            <div class="panel-heading">Contatos </div>
+            <div class="panel-body">
+            <table class="table table-bordered table-condensed table_serie">
+                <thead>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>eMail</th>
+                    <th>Setor</th>
+                    <th style="width:auto" colspan="1"></th>
+                </thead>
+                <tbody>
+                  <% @participante.contato.each do |contato| %>
+                  <tr>
+                    <td><%= contato.nome %></td>
+                    <td><%= contato.tel %></td>
+                    <td><%= contato.email %></td>
+                    <td><%= unless contato.setor.nil? then contato.setor.descr end %></td>
+                    <td>
+                    </td>
+                  </tr>
+                  <% end %>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    <%end%>
         <div id="accordion" class="panel panel-info">
             <div class="panel-heading">
                 Endereço
