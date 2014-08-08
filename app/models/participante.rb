@@ -1,12 +1,14 @@
 class Participante < ActiveRecord::Base
   has_many :fabrica, :class_name=>'Serienum',:foreign_key => "fabricante_id"
   has_many :fornece, :class_name=>'Serienum',:foreign_key => "fornecedor_id"
-  has_many :contato, :class_name=>'Contato',:foreign_key =>"participante_id" 
+  has_many :contatos,:dependent => :destroy
+  accepts_nested_attributes_for :contatos,allow_destroy: true
   
-  validates :nome, :presence => true, :uniqueness => false, length: { maximum: 100 }
-  validates :cnpj, :presence => true, :uniqueness => true, length: { maximum: 20 }
+  
+  validates :nome, :presence => {:message => "Campo Obrigatorio"}, :uniqueness => false, length: { maximum: 100 }
+  validates :cnpj, :presence => true, :uniqueness => {:message => "Ja existe o cnpj/cpf"}, length: { maximum: 20 }
   validates :fantasia, length: { maximum: 60 }
-  validates :ie, :presence => true, length: { maximum: 20 }
+  validates :ie, :presence => {:message => "RG ou Inscricao - Campo Obrigatorio"}, length: { maximum: 20 }
   validates :observacao, length: { maximum: 150 }
   
   validates :ender, length: { maximum: 100 }

@@ -31,7 +31,7 @@
         <td><%= participante.cidade %></td>
         <td><%= participante.uf %></td>
         <td><%= participante.tel1 %></td>
-        <td><%= participante.email_contato %></td>
+        <td><%= participante.contatos.maximum("email") %></td>
         <td><%= link_to 'Mostrar', participante,:class=>'btn btn-primary btn-xs' %></td>
         <td><%= link_to 'Editar', edit_participante_path(participante),:class=>'btn btn-primary btn-xs' %></td>
         <td><%= link_to 'Apagar', participante, method: :delete,data: { confirm: 'Tem Certeza?' },:class=>'btn btn-danger btn-xs' %></td>

@@ -15,6 +15,7 @@ class ParticipantesController < ApplicationController
   # GET /participantes/new
   def new
     @participante = Participante.new
+    @participante.contatos.build
   end
 
   # GET /participantes/1/edit
@@ -69,6 +70,9 @@ class ParticipantesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def participante_params
-      params.require(:participante).permit(:tipo, :transportadora, :nome,:fantasia,:site, :cnpj, :ie,:optante_simples,:data_relacao,:inativo,:obs_relacoes,:indicado_por,:observacao, :ender, :numero, :complemento, :bairro, :cidade, :uf, :cep,:obs_ender, :ender_cob, :numero_cob, :complemento_cob, :bairro_cob, :cidade_cob, :uf_cob, :cep_cob,:obs_ender_cob, :ender_entrega, :numero_entrega, :complemento_entrega, :bairro_entrega, :cidade_entrega, :uf_entrega, :cep_entrega,:obs_ender_entrega, :tel1, :tel2, :tel3, :email_nfe, :email_contato, :cli_ou_for)
+      params.require(:participante).permit(:tipo, :transportadora, :nome,:fantasia,:site, :cnpj, :ie,:optante_simples,:data_relacao,:inativo,:obs_relacoes,:indicado_por,:observacao, :ender, :numero, :complemento,
+       :bairro, :cidade, :uf, :cep,:obs_ender, :ender_cob, :numero_cob, :complemento_cob, :bairro_cob, :cidade_cob, :uf_cob, :cep_cob,:obs_ender_cob, :ender_entrega, :numero_entrega, :complemento_entrega,
+        :bairro_entrega, :cidade_entrega, :uf_entrega, :cep_entrega,:obs_ender_entrega, :tel1, :tel2, :tel3, :email_nfe, :email_contato, :cli_ou_for,
+        contatos_attributes:[:nome,:email,:tel,:setor_id])
     end
 end
